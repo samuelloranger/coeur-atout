@@ -1,0 +1,16 @@
+{
+  "env" :{
+    "node": true,
+    "browser": true,
+    "amd": true,
+    "es6": true,
+    "jquery": true
+  },
+  "extends": "eslint-config-airbnb",
+  "rules":{
+    "no-console": "warn"
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  }
+}

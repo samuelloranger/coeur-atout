@@ -1,0 +1,12 @@
+.idea/
+
+### Sass template
+.sass-cache/
+*.css.map
+
+### macOS template
+*.DS_Store
+Icon?
+
+bower_components/
+node_modules/
