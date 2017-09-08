@@ -30,5 +30,47 @@
 /****** BASE ******/
 @include border-box-sizing;
 
+@media(max-width:480px){
+  $susy: (
+          'columns': susy-repeat(4),
+          'gutters': 0.25,
+          'spread': 'narrow',
+          'container-spread': 'wide',
+  );
+  .wrap {
+    background: susy-svg-grid((
+            'columns': susy-repeat(4),
+            'gutters': 0.25,
+            'spread': 'narrow',
+            'container-spread': 'wide',
+    )) no-repeat scroll;
+  }
+}
+@media(min-width:481px){
+  $susy: (
+          'columns': susy-repeat(12),
+          'gutters': 0.25,
+          'spread': 'narrow',
+          'container-spread': 'narrow'
+  );
+  .wrap {
+    max-width:1140px;
+    margin: 0 auto;
+    background: susy-svg-grid((
+            'columns': susy-repeat(12),
+            'gutters': 0.25,
+            'spread': 'narrow',
+            'container-spread': 'narrow'
+    )) no-repeat scroll;
+    padding-top: 10vh;
+  }
+}
 
-/******              ******/
+.wrap--float{
+  @include clearfix;
+}
+.wrap--flex{
+  display: flex;
+  flex-flow:row wrap;
+  justify-content: space-between;
+}
