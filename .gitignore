@@ -1,12 +1,18 @@
-.idea/
+#Le # au début d'une ligne défini un commentaire
 
-### Sass template
-.sass-cache/
-*.css.map
-
-### macOS template
-*.DS_Store
+#Fichiers cachés créés par Mac OS
+.DS_Store
 Icon?
 
-bower_components/
+#Dossier caché créé par PHPStorm
+.idea/
+
+#Dossier des dépendances
 node_modules/
+bower_components/
+
+#Dossier caché de fichiers temporaires créé par sass
+.sass-cache/
+
+#Dossier de compilation des css
+css/

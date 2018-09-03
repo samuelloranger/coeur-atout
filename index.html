@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
   <meta charset="utf-8"/>
   <title>Coeur Atout - Jouer la carte romantique</title>
   <meta name="viewport" content="width=device-width"/>
-  <!--<link rel="stylesheet" type="text/css" href="css/styles.css"/>-->
+  <!--<link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>-->
+
 </head>
 <body>
-<div id="page">
+
   <header>
     <p class="h1">Coeur Atout</p>
-
     <p>Jouer la carte romantique</p>
   </header>
+
   <main>
     <h1>Inscription</h1>
-    <ol class="bpe">
-      <li class="bpe__etape bpe__etape--is-active" id="bpe__etape1" tabindex="-1"><span>1.</span>Qui suis-je?</li>
-      <li class="bpe__etape" id="bpe__etape2" tabindex="-1"><span>2.</span>Coordonnées</li>
-      <li class="bpe__etape" id="bpe__etape3" tabindex="-1"><span>3.</span>Plus qu'une étape</li>
-    </ol>
-    <form id="fInscription" action="index.html" class="fInscription">
 
-    </form>
+    <!-- FORMULAIRE À CRÉER-->
+
   </main>
-  <footer>
-    <small>Tous droits réservés à Coeur Atout Inc. Dernière mise à jour - septembre 2017.</small>
-  </footer>
-  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
-  <script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js">\x3C/script>')</script>
 
-  <script src="bower_components/requirejs/require.js" data-main="js/app.js"></script>
-</div>
+  <footer>
+    <small>Tous droits réservés à Coeur Atout Inc. Dernière mise à jour - septembre 2018.</small>
+  </footer>
+
+
+  <!-- CDN v2018 -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+
+  <!-- ALT au CDN: chargement local de la version installée avec Bower -->
+  <script>window.jQuery || document.write('<script src="../bower_components/jquery/dist/jquery.min.js">\x3C/script>')</script>
+
+  <!-- Chargement de objMessages, l'objet json des messages d'erreurs -->
+  <script src="assets/js/objMessages.js"></script>
+
+  <!-- On importe toutes les classes de l'application et on instancie l'application dans app.js. -->
+  <script src="../bower_components/requirejs/require.js" data-main="assets/js/app.js"></script>
 
 </body>
 </html>

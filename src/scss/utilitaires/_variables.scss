@@ -1,0 +1,44 @@
+/**
+ * @author Prénom Nom courriel
+ * @todo ADAPTER ce fichier selon concept
+ * ------------------
+ * TABLE DES MATIÈRES
+ * ------------------
+ * Polices de caractères
+ * Palette de couleurs
+ * Points de rupture
+ **/
+
+/** Polices de caractères **/
+/*
+@font-face {
+  font-family: "Nom Police";
+          src: 	url('Nom-Police.woff2') format('woff2'),
+         		url('Nom-Police.woff') format('woff'),
+         		url('Nom-Police.ttf') format('truetype');
+}
+*/
+$policeTitres: "Nom Police", sans-serif;
+$policeCorps: Times, serif;
+
+/** Palette de couleurs **/
+// Au besoin utiliser http://chir.ag/projects/name-that-color pour nommer les couleurs
+
+$bleuPale: #68A8E8;
+$vertLime: #BBD531;
+$bleuMinuit: #012D61;
+$bleuMarin: #2678B5;
+$noir: #000;
+$blanc: #fff;
+
+$dominante: $bleuMinuit;
+$secondaire: $vertLime;
+$texte:$noir;
+$texteInverse:$blanc;
+
+
+/** Points de rupture **/
+$tablettePortrait : 600px;
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+$desktop : 1025px;
+/* hi-res laptops and desktops */

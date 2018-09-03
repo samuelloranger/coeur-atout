@@ -11,9 +11,9 @@
     "bower_components"
   ],
   "dependencies": {
-    "jquery": "^3.2.1",
-    "normalize-scss": "normalize.scss#^7.0.0",
-    "requirejs": "^2.3.3",
-    "susy": "^3.0.0"
+    "normalize-css": "^8.0.0",
+    "susy": "^3.0.5",
+    "requirejs": "^2.3.5",
+    "jquery": "^3.3.1"
   }
 }

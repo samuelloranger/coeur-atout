@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "allowJs": true,
     "module": "amd",
     "target": "es5",
+    "outDir":"./assets/js",
     "sourceMap": true
   },
   "exclude": [
+    "bower_components",
     "node_modules"
   ]
 }
