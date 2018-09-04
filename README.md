@@ -29,7 +29,7 @@ __copiez-collez__ les à partir de l'énoncé ou du fichier objMessages.json
 * Pour les validations
     * Ajoutez un conteneurBlock.erreur après chaque élément (ou groupe d'éléments) de formulaire à valider
     * La structure à implémenter pour chaque élément ou groupe d'éléments de formulaire
-    doit permettre la rédaction de sélecteurs __'.ctnForm .erreur'__ ou '.ctnForm .info'
+    doit permettre la rédaction de sélecteurs __'.ctnForm .erreur'__ ou '.ctnForm .info'. En voici un aperçu sommaire:
         * Pour les éléments simples:
             * __div.ctnForm__
                 * p > étiquette + élément de formulaire
@@ -37,6 +37,7 @@ __copiez-collez__ les à partir de l'énoncé ou du fichier objMessages.json
                 * p.erreur
         * Pour les  groupes d'éléments comme les boutons radio:
             * __fieldset.ctnForm__
+                * legend
                 * ul > li > élément de formulaire + étiquette
                 * p.info (si besoin)
                 * p.erreur
