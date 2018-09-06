@@ -58,13 +58,10 @@ const objMessages = {
         "erreurs": {
             "vide": "Veuillez définir votre mot de passe.",
             "motif": "Votre mot de passe ne respecte pas encore tous les critères... Renforcez-le!",
-            "base": "Pour renforcer la sécurité de votre mot de passe: \n",
-            "type": {
-                "size": "\t  -  saisissez entre 6 et 10 caractères\n",
-                "minus": "\t  -  ajoutez au moins une minuscule\n",
-                "majus": "\t  -  ajoutez au moins une majuscule\n",
-                "num": "\t  -  ajoutez au moins un chiffre\n"
-            }
+            "size": "Votre mot de passe doit comporter entre 6 et 10 caractères",
+            "minus": "Votre mot de passe doit comporter au moins une minuscule",
+            "majus": "Votre mot de passe doit comporter au moins une majuscule",
+            "num": "Votre mot de passe doit comporter au moins un chiffre"
         }
     },
 
