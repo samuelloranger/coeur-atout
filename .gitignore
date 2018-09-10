@@ -14,5 +14,7 @@ bower_components/
 #Dossier caché de fichiers temporaires créé par sass
 .sass-cache/
 
-#Dossier de compilation des css
-css/
+#Dossiers de compilation
+assets/css/
+assets/js/
+!assets/js/objMessages.js

@@ -20,15 +20,25 @@ const objMessages = {
         "ok": "Parfait! passons à l'étape suivante..."
     },
 
-    "dateNaissance": {
+    "jour": {
         "erreurs": {
-            "vide": "Veuillez entrer votre date de naissance, s’il-vous-plaît. ",
-            "motif": "Vous êtes trop jeune pour vous inscrire ici!",
-            "type": {
-                "jour": "Entrez votre jour de naissance",
-                "mois": "Sélectionnez votre mois de naissance",
-                "annee": "Entrez les 4 chiffres de votre année de naissance"
-            }
+            "vide": "Entrez votre jour de naissance",
+            "motif": "Il semble y avoir une erreur dans la saisie de votre jour de naissance"
+        }
+    },
+
+    "mois": {
+        "erreurs": {
+            "vide": "Sélectionnez votre mois de naissance",
+            "motif": "Il semble y avoir une erreur dans la saisie de votre mois de naissance"
+        }
+    },
+
+    "annee": {
+        "erreurs": {
+            "vide": "Entrez les 4 chiffres de votre année de naissance",
+            "motif": "Il semble y avoir une erreur dans la saisie de votre année de naissance",
+            "age": "Vous êtes trop jeune pour vous inscrire ici!"
         }
     },
 
