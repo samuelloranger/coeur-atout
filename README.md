@@ -7,10 +7,8 @@ Coeur Atout
 * Vérifier la présence et le contenu des fichiers .gitignore, bower.json, package.json, gulpfile.js
 * Ouvrir dans PHPStorm, et dans son terminal taper:
 ```
-    bower install
     npm install
 ```
-* Dans le dossier bower_components, renommer le fichier normalize.css -> normalize.scss
 
 ## Spécifications pour l'intégration
 #### Les instructions suivantes ne sont pas un pas à pas complet mais, simplement un petit guide de départ.
