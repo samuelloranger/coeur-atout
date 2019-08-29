@@ -14,8 +14,17 @@ export class Validations {
     // Constructeur
     constructor(objetJSON: JSON){
 
-        document.querySelector('form').noValidate = true
+        document.querySelector('form').noValidate = true;
+        /* var requestURL = './assets/js/objMessages.json';
+         var request = new XMLHttpRequest();
+         request.open('GET', requestURL);
+         request.responseType = 'json';
+         request.send();
 
+         request.onload = function() {
+             var objMessages = request.response;
+         }
+         this.objMessages=objMessages;*/
     }
 
     // Méthodes de validation

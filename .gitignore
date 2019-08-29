@@ -9,7 +9,6 @@ Icon?
 
 #Dossier des dépendances
 node_modules/
-bower_components/
 
 #Dossier caché de fichiers temporaires créé par sass
 .sass-cache/
