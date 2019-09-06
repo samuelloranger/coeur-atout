@@ -1,0 +1,55 @@
+/**
+ * @author Samuel Loranger <samuelloranger@gmail.com>
+ */
+header{
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+
+  @media(min-width: $tablettePortrait){
+    width: 100%;
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .conteneurLogo{
+    width: 100%;
+
+    @media(min-width: $tablettePortrait){
+      padding: 2%;
+      width: 50%;
+    }
+
+    .logo{
+      width: 100%;
+      max-width: 535px;
+      @include filterShadow();
+
+      @media(min-width: $tablettePortrait){
+        //max-width: 35%;
+      }
+    }
+    h2{
+       margin: 0;
+       text-align: center;
+
+       @media(min-width: $tablettePortrait){
+         text-align: left;
+       }
+     }
+  }
+
+  p{
+    text-align: right;
+    padding-right: 2%;
+    width: 100%;
+    font-family: $policeTitres;
+    @include fontSize(20px);
+
+    @media(min-width: $tablettePortrait){
+      width: 30%;
+      @include fontSize(30px);
+    }
+  }
+}

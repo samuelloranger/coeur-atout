@@ -5,26 +5,135 @@
   <meta charset="utf-8"/>
   <title>Coeur Atout - Jouer la carte romantique</title>
   <meta name="viewport" content="width=device-width"/>
-  <!--<link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>-->
+  <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
 
 </head>
 <body>
 
   <header>
-    <p class="h1">Coeur Atout</p>
-    <p>Jouer la carte romantique</p>
+      <div class="conteneurLogo">
+          <h1 style="display: none;" aria-disabled="true">Coeur Atout</h1>
+          <img class="logo" src="assets/images/icones/logo_coeur_atout.svg" alt="Coeur Atout">
+          <h2>Jouer la carte romantique</h2>
+      </div>
+
+      <p><a href="#">Déjà inscrit?</a></p>
   </header>
 
   <main>
-    <h1>Inscription</h1>
-<form>
-</form>
+      <div class="formulaire__entete">
+          <h1>Inscription</h1>
+
+          <ul class="etapes">
+              <li class="elementMenu elementMenu__courant">Mon genre</li>
+              <li class="elementMenu">Mon profil</li>
+              <li class="elementMenu">Mon compte</li>
+          </ul>
+      </div>
+
+
+    <form class="conteneur formulaire">
+        <div class="zoneForm zoneForm1">
+            <fieldset class="zoneForm1 genreUtilisateur">
+                <legend>Je suis: </legend>
+                <span class="validation--iconeOk"></span>
+
+                <div class="zoneBtnRadios">
+                    <div class="radioBtn">
+                        <input id="genre_utilisateur_femme" name="genre_utilisateur" type="radio" value="Femme">
+                        <label for="genre_utilisateur_femme"><span class="icone icone--femme"></span>Une femme</label>
+                    </div>
+
+                    <div class="radioBtn">
+                        <input id="genre_utilisateur_homme" name="genre_utilisateur" type="radio" value="Homme">
+                        <label for="genre_utilisateur_homme"><span class="icone icone--homme"></span>Un homme</label>
+                    </div>
+
+                    <div class="radioBtn">
+                        <input id="genre_utilisateur_autre" name="genre_utilisateur" type="radio" value="Autre">
+                        <label for="genre_utilisateur_autre"><span class="icone icone--autre"></span>Une autre identité de genre</label>
+                    </div>
+                </div>
+
+                <p class="validation--erreur"></p>
+            </fieldset>
+
+            <fieldset class="zoneForm1 genreRecherche">
+                <legend>Je recherche: </legend>
+
+                <div class="zoneBtnRadios">
+                    <div class="radioBtn">
+                        <input id="genre_recherche_femme" name="genre_recherche" type="radio" value="Femme">
+                        <label for="genre_recherche_femme"><span class="icone icone--femme"></span>Une femme</label>
+                    </div>
+
+                    <div class="radioBtn">
+                        <input id="genre_recherche_homme" name="genre_recherche" type="radio" value="Homme">
+                        <label for="genre_recherche_homme"><span class="icone icone--homme"></span>Un homme</label>
+                    </div>
+
+                    <div class="radioBtn">
+                        <input id="genre_recherche_autre" name="genre_recherche" type="radio" value="Autre">
+                        <label for="genre_recherche_autre"><span class="icone icone--autre"></span>Une autre identité de genre</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="zoneForm zoneForm2">
+            <fieldset>
+                <legend>Ma date de naissance (JJ-MM-AAAA)</legend>
+                <input name="naissance_jour" type="number" maxlength="2">
+                <select name="naissance_mois">
+                    <option value="01">Janvier</option>
+                    <option value="02">Février</option>
+                    <option value="03">Mars</option>
+                    <option value="04">Avril</option>
+                    <option value="05">Mai</option>
+                    <option value="06">Juin</option>
+                    <option value="07">Juillet</option>
+                    <option value="08">Août</option>
+                    <option value="09">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+                </select>
+                <input>
+            </fieldset>
+
+            <fieldset>
+                <legend>Mon code postal (A1A 1A1)</legend>
+                <input type="text" maxlength="7">
+            </fieldset>
+        </div>
+
+        <div class="zoneForm zoneForm3">
+            <fieldset>
+                <legend>Mon profil</legend>
+
+                <label>Prénom: </label>
+                <input id="nom" type="text" maxlength="20">
+
+                <label>Nom: </label>
+                <input id="prenom" type="text" maxlength="20">
+
+                <label>Courriel: </label>
+                <input id="courriel" type="email" maxlength="40">
+
+                <label>Mot de passe: </label>
+                <input id="password" type="password" maxlength="15">
+
+                <input id="montrerMDP" type="checkbox" name="montrerMDP">
+                <label>Afficher le mot de passe</label>
+            </fieldset>
+        </div>
+    </form>
     <!-- FORMULAIRE À CRÉER-->
 
   </main>
 
   <footer>
-    <small>Tous droits réservés à Coeur Atout Inc. Dernière mise à jour - septembre 2018.</small>
+    <small>Tous droits réservés à Coeur Atout Inc. Dernière mise à jour - septembre 2019.</small>
   </footer>
 
 

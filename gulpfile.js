@@ -5,11 +5,10 @@ const autoPrefixer = require('gulp-autoprefixer');
 const browserSync = require("browser-sync").create();
 
 function styles(cb) {
-    return gulp.src('./scss/*.scss')
+    return gulp.src('./src/scss/**/*.scss')
         .pipe(sourceMaps.init())
         .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
         .pipe(autoPrefixer({
-            /*browsers: ['last 2 versions'],*/
             cascade: false
         }))
         .pipe(sourceMaps.write())
@@ -23,13 +22,11 @@ function watch(cb) {
             baseDir: "./"
         }
     });
-    gulp.watch('./scss/*.scss', gulp.series('styles'));
+    gulp.watch('./src/scss/**/*.scss', gulp.series('styles'));
     cb();
 }
 
 function defaut(cb){
-    console.log("allo");
-    // place code for your default task here
     cb();
 }
 

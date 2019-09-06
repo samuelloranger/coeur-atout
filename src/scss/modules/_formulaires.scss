@@ -1,0 +1,149 @@
+/**
+ * Formulaires et étapes de formulaires
+ */
+
+.etapes{
+  padding: 0;
+  margin: 0 auto 2% auto;
+  list-style-type: none;
+
+  @media(min-width: 800px){
+    max-width: 815px;
+    display: flex;
+  }
+
+  .elementMenu{
+    width: 160px;
+    height: 42px;
+    margin: 2% auto 0 auto;
+    text-align: center;
+    background-color: $gris-pale;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include fontSize(20px);
+    @include boxShadow();
+
+    @media(min-width: 800px){
+      width: 260px;
+      height: 64px;
+      @include fontSize(30px);
+    }
+
+    &__courant{
+      background-color: $rouge;
+      font-family: $policeTitres;
+    }
+  }
+}
+
+.formulaire{
+  &__entete{
+    h1{
+      text-align: center;
+      margin-top: 0;
+    }
+  }
+
+  fieldset{
+    border: 4px solid $gris;
+    margin-bottom: 2%;
+
+    legend{
+      font-family: $policeTitres;
+      padding: 0 2% 0 2%;
+      @include fontSize(24px);
+      @include textShadow();
+
+      @media(min-width: $tablettePortrait){
+        @include fontSize(30px);
+      }
+    }
+
+    .zoneBtnRadios{
+      display: flex;
+      flex-direction: column;
+      width: 85%;
+      margin: 0 auto;
+
+      @media(min-width: $tablettePortrait){
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .radioBtn{
+        display: flex;
+        align-items: center;
+        margin-bottom: 5%;
+
+        @media(min-width: $tablettePortrait){
+          margin-top: 2%;
+          margin-bottom: 2%;
+          width: 27.5%;
+
+          &:nth-of-type(3n){
+            width: 45%;
+          }
+        }
+
+        input{
+          display: none;
+        }
+
+        /**
+         * Puisque l'icône est dans le label, on doit mettre le label en display flex
+         */
+        label{
+          width: 100%;
+          display: flex;
+          align-items: center;
+
+          .icone{
+            display: inline-block;
+            top: 0;
+            left: 0;
+            content: " ";
+            min-width: 50px;
+            min-height: 50px;
+            margin-right: 2%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: all;
+
+            &--femme{
+              background-image: url("../assets/images/icones/femme.svg");
+            }
+
+            &--homme{
+              background-image: url("../assets/images/icones/homme.svg");
+            }
+
+            &--autre{
+              background-image: url("../assets/images/icones/autre_identite.svg");
+            }
+          }
+        }
+
+        /**
+         * Lorsque le input est coché, on change les images de background des icônes respectifs
+         */
+        input:checked + label .icone{
+          &--femme{
+            background-image: url("../assets/images/icones/femme-selected.svg");
+          }
+
+          &--homme{
+            background-image: url("../assets/images/icones/homme-selected.svg");
+          }
+
+          &--autre{
+            background-image: url("../assets/images/icones/autre_identite-selected.svg");
+          }
+        }
+      }
+    }
+  }
+}
+
+
+

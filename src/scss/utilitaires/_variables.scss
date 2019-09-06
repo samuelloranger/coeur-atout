@@ -1,6 +1,5 @@
 /**
- * @author Prénom Nom courriel
- * @todo ADAPTER ce fichier selon concept
+ * @author Samuel Loranger <samuelloranger@gmail.com>
  * ------------------
  * TABLE DES MATIÈRES
  * ------------------
@@ -10,35 +9,31 @@
  **/
 
 /** Polices de caractères **/
-/*
+@import url('https://fonts.googleapis.com/css?family=Kanit:400,700,900&display=swap');
+
 @font-face {
-  font-family: "Nom Police";
-          src: 	url('Nom-Police.woff2') format('woff2'),
-         		url('Nom-Police.woff') format('woff'),
-         		url('Nom-Police.ttf') format('truetype');
+  font-family: "Kanit-Bold"; src: url('../assets/fonts/Kanit/Kanit-Bold.ttf') format('truetype');
 }
-*/
-$policeTitres: "Nom Police", sans-serif;
-$policeCorps: Times, serif;
+
+@font-face {
+  font-family: "Kanit-Regular"; src: url('../assets/fonts/Kanit/Kanit-Regular.ttf') format('truetype');
+}
+
+$policeTitres: "Kanit-Bold", Arial-Black, sans-serif;
+$policeCorps: "Kanit-Regular", Arial, serif;
 
 /** Palette de couleurs **/
 // Au besoin utiliser http://chir.ag/projects/name-that-color pour nommer les couleurs
-
-$bleuPale: #68A8E8;
-$vertLime: #BBD531;
-$bleuMinuit: #012D61;
-$bleuMarin: #2678B5;
+$rouge: #EB3125;
 $noir: #000;
 $blanc: #fff;
-
-$dominante: $bleuMinuit;
-$secondaire: $vertLime;
-$texte:$noir;
-$texteInverse:$blanc;
-
+$gris: #707070;
+$gris-pale: #E0E0E0;
+$rouge-pale: darken($rouge, 30%);
 
 /** Points de rupture **/
-$tablettePortrait : 600px;
 /* tablet, landscape iPad, lo-res laptops ands desktops */
-$desktop : 1025px;
+$tablettePortrait : 600px;
+
 /* hi-res laptops and desktops */
+$desktop : 1000px;

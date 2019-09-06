@@ -17,8 +17,22 @@
  *
  * ...
  */
- 
+
+
 
 /*** Normalize ***/
-//@import '../node_modules/normalize.scss/normalize.scss';
+@import '../../node_modules/normalize.scss/normalize.scss';
+
+/*** Utilitaires ***/
+@import "utilitaires/mixins";
+@import "utilitaires/variables";
+
+/*** Base ***/
+@import "base/typo";
+
+/*** Modules ***/
+@import "modules/general";
+@import "modules/formulaires";
+@import "modules/header";
+@import "modules/footer";
 

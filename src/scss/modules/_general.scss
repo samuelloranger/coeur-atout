@@ -1,0 +1,37 @@
+/**
+ * @author Samuel Loranger <samuelloranger@gmail.com>
+ */
+
+.conteneur-fluid{
+  width: 100%;
+}
+
+.conteneur{
+  max-width: $desktop;
+  margin: 0 auto;
+}
+
+.validation{
+  &--icone {
+    display: none;
+    width: 64px;
+    height: 64px;
+    background-image: url("../assets/images/icones/crochet.svg");
+    background-size: contain;
+
+    &Ok {
+      display: block;
+    }
+  }
+
+  &--erreur{
+    color: $rouge;
+    width: 85%;
+    margin: 0 auto;
+    font-size: 18px;
+  }
+
+  &Container--erreur{
+    border: 3px solid $rouge;
+  }
+}

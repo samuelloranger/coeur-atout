@@ -39,40 +39,43 @@ body {
 /** Hiérarchie responsive **/
 /*  plus proche = plus petit  &  plus loin = plus grand */
 
-/* TITRES NIVEAU 1 */
-h1,
-.h1 { /* = 32px */
-  @include fontSize(32px);
+h1, h2, h3, h4, h5{
+  font-family: $policeTitres;
 }
-@media (min-width: $tablettePortrait) {
-  h1,
-  .h1 { /* = 40px */
-    @include fontSize(40px);
-  }
+
+body, p, span, input, label, a{
+  font-family: $policeCorps;
 }
-@media (min-width: $desktop) {
-  h1,
-  .h1 { /* = 48px */
-    @include fontSize(48px);
+
+label{
+  @include fontSize(24px);
+}
+
+a{
+  color: $rouge;
+  text-decoration: none;
+  transition: 0.15s ease-in-out;
+
+  &:hover, visited{
+    color: $rouge-pale;
   }
 }
 
+/* TITRES NIVEAU 1 */
+h1,
+.h1 { /* = 32px */
+  @include fontSize(38px);
+}
 
 /* TITRES NIVEAU 2 */
 h2,
 .h2 { /* = 24px */
-  @include fontSize(24px);
+  @include fontSize(22px);
 }
 @media (min-width: $tablettePortrait) {
   h2,
   .h2 { /* = 32px */
-    @include fontSize(32px);
-  }
-}
-@media (min-width: $desktop) {
-  h2,
-  .h2 { /* = 36px */
-    @include fontSize(36px);
+    @include fontSize(30px);
   }
 }
 
@@ -80,21 +83,14 @@ h2,
 /* TITRES NIVEAU 3 */
 h3,
 .h3 { /* = 18px */
-  @include fontSize(18px);
+  @include fontSize(20px);
 }
 @media (min-width: $tablettePortrait) {
   h3,
   .h3 {  /* = 24px */
-    @include fontSize(24px);
+    @include fontSize(28px);
   }
 }
-@media (min-width: $desktop) {
-  h3,
-  .h3 { /* = 30px */
-    @include fontSize(30px);
-  }
-}
-
 
 /* TITRES NIVEAU 4 */
 h4,
