@@ -2,154 +2,189 @@
 <html lang="fr">
 <head>
 
-  <meta charset="utf-8"/>
-  <title>Coeur Atout - Jouer la carte romantique</title>
-  <meta name="viewport" content="width=device-width"/>
-  <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
+    <meta charset="utf-8"/>
+    <title>Coeur Atout - Jouer la carte romantique</title>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="description" content="Coeur Atout, Jouez la carte romantique. Le meilleur site de rencontre en ligne.">
+    <meta name="keywords" content="coeur, amour, rencontre, romantisme, web, formulaire">
+    <meta name="author" content="Samuel Loranger(TIM CSF @2019)">
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <link rel="icon" href="/assets/images/icones/favicon.png" />
 
 </head>
 <body>
+    <noscript><p>Attention: Ce site fonctionne mieux lorsque JavaScript est activé.</p></noscript>
+    <header>
+        <div class="conteneurLogo">
+            <h1 style="display: none;" aria-disabled="true">Coeur Atout</h1>
+            <img class="logo" src="assets/images/icones/logo_coeur_atout.svg" alt="Coeur Atout">
+            <h2>Jouer la carte romantique</h2>
+        </div>
 
-  <header>
-      <div class="conteneurLogo">
-          <h1 style="display: none;" aria-disabled="true">Coeur Atout</h1>
-          <img class="logo" src="assets/images/icones/logo_coeur_atout.svg" alt="Coeur Atout">
-          <h2>Jouer la carte romantique</h2>
-      </div>
+        <p><a href="#" tabindex="1">Déjà inscrit?</a></p>
+    </header>
 
-      <p><a href="#">Déjà inscrit?</a></p>
-  </header>
+    <main>
+        <div class="formulaire__entete">
+            <h1>Inscription</h1>
 
-  <main>
-      <div class="formulaire__entete">
-          <h1>Inscription</h1>
+            <ul class="etapes">
+                <li class="elementMenu elementMenu__courant">Mon genre</li>
+                <li class="elementMenu">Mon profil</li>
+                <li class="elementMenu">Mon compte</li>
+            </ul>
+        </div>
 
-          <ul class="etapes">
-              <li class="elementMenu elementMenu__courant">Mon genre</li>
-              <li class="elementMenu">Mon profil</li>
-              <li class="elementMenu">Mon compte</li>
-          </ul>
-      </div>
+        <form class="conteneur formulaire" method="get" action="index.html">
+            <div class="zoneForm zoneForm1">
+                <fieldset class="zoneForm1 genreUtilisateur">
+                    <legend tabindex="0" aria-hidden="false" aria-label="Je suis">Je suis: </legend>
+                    <span class="validation--iconeOk"></span>
 
+                    <div class="conteneurFieldset zoneBtnRadios">
+                        <div class="radioBtn" role="radio">
+                            <input id="genre_utilisateur_femme" name="genre_utilisateur" type="radio" value="Femme" aria-hidden="true">
+                            <label for="genre_utilisateur_femme" aria-hidden="true"><span class="icone icone--femme"></span>Une femme</label>
+                        </div>
 
-    <form class="conteneur formulaire">
-        <div class="zoneForm zoneForm1">
-            <fieldset class="zoneForm1 genreUtilisateur">
-                <legend>Je suis: </legend>
-                <span class="validation--iconeOk"></span>
+                        <div class="radioBtn" role="radio">
+                            <input id="genre_utilisateur_homme" name="genre_utilisateur" type="radio" value="Homme" aria-hidden="true">
+                            <label for="genre_utilisateur_homme" aria-hidden="true"><span class="icone icone--homme"></span>Un homme</label>
+                        </div>
 
-                <div class="zoneBtnRadios">
-                    <div class="radioBtn">
-                        <input id="genre_utilisateur_femme" name="genre_utilisateur" type="radio" value="Femme">
-                        <label for="genre_utilisateur_femme"><span class="icone icone--femme"></span>Une femme</label>
+                        <div class="radioBtn" role="radio">
+                            <input id="genre_utilisateur_autre" name="genre_utilisateur" type="radio" value="Autre" aria-hidden="true">
+                            <label for="genre_utilisateur_autre" aria-hidden="true"><span class="icone icone--autre"></span>Une autre identité de genre</label>
+                        </div>
                     </div>
 
-                    <div class="radioBtn">
-                        <input id="genre_utilisateur_homme" name="genre_utilisateur" type="radio" value="Homme">
-                        <label for="genre_utilisateur_homme"><span class="icone icone--homme"></span>Un homme</label>
+                    <p class="validation--erreur"></p>
+                </fieldset>
+
+                <fieldset class="zoneForm1 genreRecherche">
+                    <legend tabindex="0">Je recherche: </legend>
+
+                    <div class="conteneurFieldset zoneBtnRadios">
+                        <div class="radioBtn" role="radio" aria-label="Une femme">
+                            <input id="genre_recherche_femme" name="genre_recherche" type="radio" value="Femme" aria-hidden="true">
+                            <label for="genre_recherche_femme"><span class="icone icone--femme"></span>Une femme</label>
+                        </div>
+
+                        <div class="radioBtn" role="radio" aria-label="Un homme">
+                            <input id="genre_recherche_homme" name="genre_recherche" type="radio" value="Homme" aria-hidden="true">
+                            <label for="genre_recherche_homme" aria-hidden="true"><span class="icone icone--homme"></span>Un homme</label>
+                        </div>
+
+                        <div class="radioBtn" role="radio" aria-label="Une autre identité de genre">
+                            <input id="genre_recherche_autre" name="genre_recherche" type="radio" value="Autre" aria-hidden="true">
+                            <label for="genre_recherche_autre" aria-hidden="true"><span class="icone icone--autre"></span>Une autre identité de genre</label>
+                        </div>
                     </div>
 
-                    <div class="radioBtn">
-                        <input id="genre_utilisateur_autre" name="genre_utilisateur" type="radio" value="Autre">
-                        <label for="genre_utilisateur_autre"><span class="icone icone--autre"></span>Une autre identité de genre</label>
-                    </div>
+                    <p class="validation--erreur"></p>
+                </fieldset>
+
+                <div class="conteneurBoutons">
+                    <button class="bouton boutonSuivant" id="btnZone1Suivant">Étape suivante</button>
                 </div>
+            </div>
 
-                <p class="validation--erreur"></p>
-            </fieldset>
+            <div class="zoneForm zoneForm2">
+                <fieldset>
+                    <legend tabindex="0" aria-label="Ma date de naissance jour-mois-année" aria-hidden="true">Ma date de naissance (JJ-MM-AAAA)</legend>
+                    <div class="conteneurFieldset">
+                        <div class="elementForm">
+                            <label for="naissance_jour">Jour:</label>
+                            <input id="naissance_jour" name="naissance_jour" type="number" maxlength="2">
+                        </div>
 
-            <fieldset class="zoneForm1 genreRecherche">
-                <legend>Je recherche: </legend>
+                        <div class="elementForm">
+                            <label for="naissance_mois">Mois:</label>
+                            <select id="naissance_mois" name="naissance_mois">
+                                <option value="01">Janvier</option>
+                                <option value="02">Février</option>
+                                <option value="03">Mars</option>
+                                <option value="04">Avril</option>
+                                <option value="05">Mai</option>
+                                <option value="06">Juin</option>
+                                <option value="07">Juillet</option>
+                                <option value="08">Août</option>
+                                <option value="09">Septembre</option>
+                                <option value="10">Octobre</option>
+                                <option value="11">Novembre</option>
+                                <option value="12">Décembre</option>
+                            </select>
+                        </div>
 
-                <div class="zoneBtnRadios">
-                    <div class="radioBtn">
-                        <input id="genre_recherche_femme" name="genre_recherche" type="radio" value="Femme">
-                        <label for="genre_recherche_femme"><span class="icone icone--femme"></span>Une femme</label>
+                        <div class="elementForm">
+                            <label for="naissance_annee">Année:</label>
+                            <input id="naissance_annee" name="naissance_annee" type="number" maxlength="4">
+                        </div>
                     </div>
 
-                    <div class="radioBtn">
-                        <input id="genre_recherche_homme" name="genre_recherche" type="radio" value="Homme">
-                        <label for="genre_recherche_homme"><span class="icone icone--homme"></span>Un homme</label>
+                    <p class="validation--erreur"></p>
+                </fieldset>
+
+                <fieldset>
+                    <legend tabindex="0">Mon code postal (A1A 1A1)</legend>
+                    <div class="conteneurFieldset">
+                        <div class="elementForm">
+                            <input type="text" maxlength="7">
+                        </div>
                     </div>
 
-                    <div class="radioBtn">
-                        <input id="genre_recherche_autre" name="genre_recherche" type="radio" value="Autre">
-                        <label for="genre_recherche_autre"><span class="icone icone--autre"></span>Une autre identité de genre</label>
-                    </div>
+                    <p class="validation--erreur"></p>
+                </fieldset>
+
+                <div class="conteneurBoutons">
+                    <button class="bouton" id="btnZone2Precedent">Étape précédente</button>
+                    <button class="bouton boutonSuivant" id="btnZone2Suivant">Étape suivante</button>
                 </div>
-            </fieldset>
-        </div>
+            </div>
 
-        <div class="zoneForm zoneForm2">
-            <fieldset>
-                <legend>Ma date de naissance (JJ-MM-AAAA)</legend>
-                <input name="naissance_jour" type="number" maxlength="2">
-                <select name="naissance_mois">
-                    <option value="01">Janvier</option>
-                    <option value="02">Février</option>
-                    <option value="03">Mars</option>
-                    <option value="04">Avril</option>
-                    <option value="05">Mai</option>
-                    <option value="06">Juin</option>
-                    <option value="07">Juillet</option>
-                    <option value="08">Août</option>
-                    <option value="09">Septembre</option>
-                    <option value="10">Octobre</option>
-                    <option value="11">Novembre</option>
-                    <option value="12">Décembre</option>
-                </select>
-                <input>
-            </fieldset>
+            <div class="zoneForm zoneForm3">
+                <fieldset>
+                    <legend tabindex="0">Mon profil</legend>
 
-            <fieldset>
-                <legend>Mon code postal (A1A 1A1)</legend>
-                <input type="text" maxlength="7">
-            </fieldset>
-        </div>
+                    <div class="conteneurFieldset">
+                        <div class="elementForm">
+                            <label for="pseudo">Prénom ou pseudo </label>
+                            <input id="pseudo" name="pseudo" id="pseudo" type="text" maxlength="20" pattern="[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*">
+                        </div>
 
-        <div class="zoneForm zoneForm3">
-            <fieldset>
-                <legend>Mon profil</legend>
+                        <div class="elementForm">
+                            <label for="courriel">Courriel: </label>
+                            <input id="courriel" name="courriel" type="email" maxlength="40" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+                        </div>
 
-                <label>Prénom: </label>
-                <input id="nom" type="text" maxlength="20">
+                        <div class="elementForm">
+                            <label for="password">Mot de passe: </label>
+                            <input id="password" name="password" type="password" maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})">
 
-                <label>Nom: </label>
-                <input id="prenom" type="text" maxlength="20">
+                            <input id="montrerMDP" class="visuallyhidden" type="checkbox" name="montrerMDP">
+                            <label for="montrerMDP" class="checkBoxMontrerMDP" aria-label="Afficher le mot de passe"></label>
+                        </div>
+                    </div>
 
-                <label>Courriel: </label>
-                <input id="courriel" type="email" maxlength="40">
+                    <p class="validation--erreur"></p>
+                </fieldset>
 
-                <label>Mot de passe: </label>
-                <input id="password" type="password" maxlength="15">
+                <div class="conteneurBoutons" id="conteneurBoutonsZone3">
+                    <button class="bouton" id="btnZone3Precedente">Étape précédente</button>
+                    <button class="bouton boutonSuivant" id="btnSoumetre" type="submit">M'inscrire</button>
+                </div>
+            </div>
+        </form>
+    </main>
 
-                <input id="montrerMDP" type="checkbox" name="montrerMDP">
-                <label>Afficher le mot de passe</label>
-            </fieldset>
-        </div>
-    </form>
-    <!-- FORMULAIRE À CRÉER-->
+    <footer>
+        <small>Tous droits réservés à Coeur Atout Inc. Dernière mise à jour - septembre 2019.</small>
+    </footer>
 
-  </main>
+    <!-- Chargement de objMessages, l'objet json des messages d'erreurs -->
+<!--     <script src="./assets/js/objMessages.js"></script>-->
 
-  <footer>
-    <small>Tous droits réservés à Coeur Atout Inc. Dernière mise à jour - septembre 2019.</small>
-  </footer>
-
-
-  <!-- CDN v2018 -->
-  <!--  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-          crossorigin="anonymous"></script>-->
-
-  <!-- ALT au CDN: chargement local de la version installée avec Bower -->
-  <!--<script>window.jQuery || document.write('<script src="../bower_components/jquery/dist/jquery.min.js">\x3C/script>')</script>-->
-
-  <!-- Chargement de objMessages, l'objet json des messages d'erreurs -->
-  <!-- <script src="./assets/js/objMessages.json"></script> -->
-
-  <!-- On importe toutes les classes de l'application et on instancie l'application dans app.js. -->
-  <script src="./node_modules/requirejs/require.js" data-main="assets/js/app.js"></script>
-
+    <!-- On importe toutes les classes de l'application et on instancie l'application dans app.js. -->
+    <script src="./node_modules/requirejs/require.js" data-main="assets/js/app.js"></script>
 </body>
 </html>

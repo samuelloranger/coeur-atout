@@ -1,7 +1,6 @@
 /**
  * @author Samuel Loranger <samuelloranger@gmail.com>
  */
-
 .conteneur-fluid{
   width: 100%;
 }
@@ -12,18 +11,6 @@
 }
 
 .validation{
-  &--icone {
-    display: none;
-    width: 64px;
-    height: 64px;
-    background-image: url("../assets/images/icones/crochet.svg");
-    background-size: contain;
-
-    &Ok {
-      display: block;
-    }
-  }
-
   &--erreur{
     color: $rouge;
     width: 85%;
@@ -33,5 +20,40 @@
 
   &Container--erreur{
     border: 3px solid $rouge;
+  }
+}
+
+noscript{
+  p{
+    width: 100%;
+    background-color: $rouge;
+    text-align: center;
+    color: white;
+    font-family: $policeTitres;
+    @include fontSize(20px);
+    margin: 0;
+  }
+}
+
+.bouton {
+  width: 160px;
+  height: 42px;
+  text-align: center;
+  border: 3px solid $rouge;
+  color: $rouge;
+  @include fontSize(16px);
+  @include boxShadow();
+  font-family: $policeTitres;
+
+  @media(min-width: 800px){
+    width: 230px;
+    height: 55px;
+    @include fontSize(25px);
+  }
+
+  &Suivant{
+    border: 3px solid transparent;
+    color: black;
+    background-color: $rouge;
   }
 }

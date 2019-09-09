@@ -24,12 +24,18 @@ $policeCorps: "Kanit-Regular", Arial, serif;
 
 /** Palette de couleurs **/
 // Au besoin utiliser http://chir.ag/projects/name-that-color pour nommer les couleurs
+
+//Couleurs perso
 $rouge: #EB3125;
-$noir: #000;
-$blanc: #fff;
+$rouge-fonce: darken($rouge, 30%);
 $gris: #707070;
 $gris-pale: #E0E0E0;
-$rouge-pale: darken($rouge, 30%);
+$vert: #00C000;
+
+//Couleurs de base
+$noir: #000;
+$blanc: #fff;
+
 
 /** Points de rupture **/
 /* tablet, landscape iPad, lo-res laptops ands desktops */

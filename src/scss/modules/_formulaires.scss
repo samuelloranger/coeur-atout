@@ -2,39 +2,64 @@
  * Formulaires et étapes de formulaires
  */
 
-.etapes{
-  padding: 0;
-  margin: 0 auto 2% auto;
-  list-style-type: none;
-
-  @media(min-width: 800px){
-    max-width: 815px;
-    display: flex;
-  }
-
-  .elementMenu{
-    width: 160px;
-    height: 42px;
-    margin: 2% auto 0 auto;
-    text-align: center;
-    background-color: $gris-pale;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    @include fontSize(20px);
-    @include boxShadow();
+/**
+ * Les régles CSS qui sont sous .js sont lues seulement lorsque le javascript est activé sur la page
+ * Sinon, les règles de bases sont lues
+ */
+.js{
+  /**
+   * Zone étapes
+   */
+  .etapes{
+    display: block;
+    padding: 0;
+    margin: 0 auto 2% auto;
+    list-style-type: none;
 
     @media(min-width: 800px){
-      width: 260px;
-      height: 64px;
-      @include fontSize(30px);
+      display: flex;
+      max-width: 815px;
     }
 
-    &__courant{
-      background-color: $rouge;
-      font-family: $policeTitres;
+    .elementMenu {
+      width: 160px;
+      height: 42px;
+      margin: 2% auto 0 auto;
+      text-align: center;
+      background-color: $gris-pale;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include fontSize(20px);
+      @include boxShadow();
+
+      @media(min-width: 800px){
+        width: 260px;
+        height: 64px;
+        @include fontSize(30px);
+      }
+
+      &__courant{
+        background-color: $rouge;
+        font-family: $policeTitres;
+      }
     }
   }
+
+  /**
+   * Zone cachée
+   */
+  #btnZone1Suivant, #btnZone2Suivant, #btnZone2Precedent, #btnZone3Precedente{
+    display: inline-block;
+  }
+
+  #conteneurBoutonsZone3{
+    justify-content: space-between;
+  }
+}
+
+.etapes{
+  display: none;
 }
 
 .formulaire{
@@ -60,89 +85,201 @@
       }
     }
 
+    .conteneurFieldset{
+      width: 92%;
+      margin: 0 auto;
+
+      @media(min-width: $tablettePortrait){
+        width: 85%;
+      }
+    }
+
+    /**
+     * Zone des boutons radios (Genre de l'utilisateur + genre recherché
+     */
     .zoneBtnRadios{
       display: flex;
       flex-direction: column;
-      width: 85%;
-      margin: 0 auto;
 
       @media(min-width: $tablettePortrait){
         flex-direction: row;
         justify-content: space-between;
       }
+    }
 
-      .radioBtn{
+    .radioBtn{
+      display: flex;
+      align-items: center;
+      margin-bottom: 5%;
+
+      @media(min-width: $tablettePortrait){
+        margin-top: 2%;
+        margin-bottom: 2%;
+        width: 27.5%;
+
+        &:nth-of-type(3n){
+          width: 45%;
+        }
+      }
+
+      input{
+        opacity: 0;
+      }
+
+      /**
+       * Puisque l'icône est dans le label, on doit mettre le label en display flex
+       */
+      label{
+        width: 100%;
         display: flex;
         align-items: center;
-        margin-bottom: 5%;
 
-        @media(min-width: $tablettePortrait){
-          margin-top: 2%;
-          margin-bottom: 2%;
-          width: 27.5%;
+        .icone{
+          display: inline-block;
+          background-image: url("../assets/images/icones/sprites-icones.svg");
+          background-size: 200px;
+          background-repeat: no-repeat;
+          min-width: 50px;
+          min-height: 50px;
+          top: 0;
+          left: 0;
+          margin-right: 2%;
 
-          &:nth-of-type(3n){
-            width: 45%;
-          }
-        }
-
-        input{
-          display: none;
-        }
-
-        /**
-         * Puisque l'icône est dans le label, on doit mettre le label en display flex
-         */
-        label{
-          width: 100%;
-          display: flex;
-          align-items: center;
-
-          .icone{
-            display: inline-block;
-            top: 0;
-            left: 0;
-            content: " ";
-            min-width: 50px;
-            min-height: 50px;
-            margin-right: 2%;
-            background-size: contain;
-            background-repeat: no-repeat;
-            pointer-events: all;
-
-            &--femme{
-              background-image: url("../assets/images/icones/femme.svg");
-            }
-
-            &--homme{
-              background-image: url("../assets/images/icones/homme.svg");
-            }
-
-            &--autre{
-              background-image: url("../assets/images/icones/autre_identite.svg");
-            }
-          }
-        }
-
-        /**
-         * Lorsque le input est coché, on change les images de background des icônes respectifs
-         */
-        input:checked + label .icone{
           &--femme{
-            background-image: url("../assets/images/icones/femme-selected.svg");
+            background-position: 0 0;
           }
 
           &--homme{
-            background-image: url("../assets/images/icones/homme-selected.svg");
+            background-position: -50px 0;
           }
 
           &--autre{
-            background-image: url("../assets/images/icones/autre_identite-selected.svg");
+            background-position: -100px 0;
           }
+        }
+      }
+
+      /**
+       * Zone cachée
+       */
+      input:focus + label{
+        //Styles de focus de chrome
+        outline-color: rgb(77, 144, 254); // #4D90FE
+        outline-offset: -2px;
+        outline-style: auto;
+        outline-width: 5px;
+      }
+
+      /**
+       * Lorsque le input est coché, on change les images de background des icônes respectifs
+       */
+      input:checked + label .icone{
+        &--femme{
+          background-position: 0 -50px;
+        }
+
+        &--homme{
+          background-position: -50px -50px;
+        }
+
+        &--autre{
+          background-position: -100px -50px;
+        }
+      }
+    }//Fin zontBtnRadios
+
+
+    /**
+     * Éléments de formulaires
+     */
+    .elementForm{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      input, select{
+        border: 3px solid black;
+        width: 240px;
+        padding-left: 3px;
+
+        @media(min-width: $tablettePortrait){
+          width: 350px;
+        }
+      }
+
+      select{
+        width: 250px;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0px;
+        background-image: linear-gradient(45deg, transparent 50%, black 50%), linear-gradient(135deg, black 50%, transparent 50%);
+        background-position: calc(100% - 25px) calc(1em + 5px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+        background-position-y: 10px;
+        background-size: 10px 10px, 10px 10px, 5px 2.5em;
+        background-repeat: no-repeat;
+
+        @media(min-width: $tablettePortrait){
+          width: 360px;
+        }
+      }
+
+      &:last-of-type{
+        .checkBoxMontrerMDP{
+          background-image: url("../assets/images/icones/sprites-icones.svg");
+          background-size: 100px;
+          background-repeat: no-repeat;
+          background-position: 0 -50px;
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          bottom: 3px;
+          left: 215px;
+
+          @media(min-width: $tablettePortrait){
+            left: 320px
+          }
+        }
+
+        #montrerMDP:checked + label{
+          background-position: -25px -50px;
         }
       }
     }
   }
+
+  /**
+   * Correctifs des zones de formulaires pour des styles spécifiques à certaines zones formulaires
+   */
+  .zoneForm{
+    padding: 0 2% 0 2%;
+
+    &1, &2, &3{
+      margin-bottom: 3%;
+
+      &__cache{
+        display: none;
+      }
+
+      .conteneurBoutons{
+        display: flex;
+        justify-content: flex-end;
+
+        button{
+          display: none;
+        }
+
+        #btnSoumetre{
+          display: block;
+        }
+      }
+    }
+
+    &2{
+      .conteneurBoutons{
+        justify-content: space-between;
+      }
+    }
+  }
+
 }
 
 

@@ -2,29 +2,20 @@
  * @author Samuel Loranger <samuelloranger@gmail.com>
  */
 export class Validations {
-
     // ATTRIBUTS
-    private objMessages:JSON;
+    private objMessages: JSON;
 
     // Éléments de formulaire à valider
-    private refarrJeSuis:Array<HTMLElement> = Array.apply(null, document.querySelectorAll('[name=genre_utilisateur]'));
+    //Je suis
+    private refarrJeSuis: Array<HTMLElement> = Array.apply(null, document.querySelectorAll('[name=genre_utilisateur]'));
+
+    //Mot de passe
+    private checkboxMontrerMDP: HTMLInputElement = document.querySelector("#montrerMDP");
+    private inputMDP: HTMLInputElement = document.querySelector("#password");
 
     // Constructeur
-    constructor(){
+    constructor() {
         document.querySelector('form').noValidate = true;
-        let requestURL = './assets/js/objMessages.json';
-        let request = new XMLHttpRequest();
-        let objMessages:JSON = null;
-        request.open('GET', requestURL);
-        request.responseType = 'json';
-        request.send();
-
-        request.onload = () => {
-            objMessages = request.response;
-        };
-
-        this.objMessages = objMessages;
-
         this.ajouterEcouteursEvenements();
     }
 
@@ -36,6 +27,9 @@ export class Validations {
         this.refarrJeSuis.forEach((element) => {
             element.addEventListener("blur", this.validerJeSuis);
         });
+
+        //Checkbox bouton montrer mot de passe
+        this.checkboxMontrerMDP.addEventListener("click", this.basculerTypeMotDePasse);
     };
 
     // Méthodes de validation
@@ -81,7 +75,7 @@ export class Validations {
     // Méthodes utilitaires
 
     private verifierSiVide = (element) => {
-        if(element.currentTarget == "" || !element.currentTarget.checked ){
+        if (element.currentTarget == "" || !element.currentTarget.checked) {
 
         }
     };
@@ -110,8 +104,11 @@ export class Validations {
 
     };
 
-    private basculerTypeMotDePasse = () => {
-
+    private basculerTypeMotDePasse = (event) => {
+        if (event.currentTarget.checked == false) {
+            this.inputMDP.type = "text";
+        } else {
+            this.inputMDP.type = "password";
+        }
     };
-
 }
