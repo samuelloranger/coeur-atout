@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
     <meta charset="utf-8"/>
     <title>Coeur Atout - Jouer la carte romantique</title>
     <meta name="viewport" content="width=device-width"/>
@@ -10,7 +9,6 @@
     <meta name="author" content="Samuel Loranger(TIM CSF @2019)">
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <link rel="icon" href="/assets/images/icones/favicon.png" />
-
 </head>
 <body>
     <noscript><p>Attention: Ce site fonctionne mieux lorsque JavaScript est activé.</p></noscript>
@@ -29,9 +27,9 @@
             <h1>Inscription</h1>
 
             <ul class="etapes">
-                <li class="elementMenu elementMenu__courant">Mon genre</li>
-                <li class="elementMenu">Mon profil</li>
-                <li class="elementMenu">Mon compte</li>
+                <li class="elementEtapes elementEtapes__courant">1. Mon genre</li>
+                <li class="elementEtapes">2. Mon profil</li>
+                <li class="elementEtapes">3. Mon compte</li>
             </ul>
         </div>
 
@@ -39,7 +37,6 @@
             <div class="zoneForm zoneForm1">
                 <fieldset class="zoneForm1 genreUtilisateur">
                     <legend tabindex="0" aria-hidden="false" aria-label="Je suis">Je suis: </legend>
-                    <span class="validation--iconeOk"></span>
 
                     <div class="conteneurFieldset zoneBtnRadios">
                         <div class="radioBtn" role="radio">
@@ -58,87 +55,101 @@
                         </div>
                     </div>
 
-                    <p class="validation--erreur"></p>
+                    <p class="validation validation--largeur"></p>
                 </fieldset>
 
                 <fieldset class="zoneForm1 genreRecherche">
                     <legend tabindex="0">Je recherche: </legend>
-
+                    <span class="infoSupp">Vous pouvez sélectionner plus d'un choix</span>
                     <div class="conteneurFieldset zoneBtnRadios">
-                        <div class="radioBtn" role="radio" aria-label="Une femme">
-                            <input id="genre_recherche_femme" name="genre_recherche" type="radio" value="Femme" aria-hidden="true">
+                        <div class="radioBtn" role="checkbox" aria-label="Une femme">
+                            <input id="genre_recherche_femme" name="genre_recherche" type="checkbox" value="Femme" aria-hidden="true">
                             <label for="genre_recherche_femme"><span class="icone icone--femme"></span>Une femme</label>
                         </div>
 
-                        <div class="radioBtn" role="radio" aria-label="Un homme">
-                            <input id="genre_recherche_homme" name="genre_recherche" type="radio" value="Homme" aria-hidden="true">
+                        <div class="radioBtn" role="checkbox" aria-label="Un homme">
+                            <input id="genre_recherche_homme" name="genre_recherche" type="checkbox" value="Homme" aria-hidden="true">
                             <label for="genre_recherche_homme" aria-hidden="true"><span class="icone icone--homme"></span>Un homme</label>
                         </div>
 
-                        <div class="radioBtn" role="radio" aria-label="Une autre identité de genre">
-                            <input id="genre_recherche_autre" name="genre_recherche" type="radio" value="Autre" aria-hidden="true">
+                        <div class="radioBtn" role="checkbox" aria-label="Une autre identité de genre">
+                            <input id="genre_recherche_autre" name="genre_recherche" type="checkbox" value="Autre" aria-hidden="true">
                             <label for="genre_recherche_autre" aria-hidden="true"><span class="icone icone--autre"></span>Une autre identité de genre</label>
                         </div>
                     </div>
 
-                    <p class="validation--erreur"></p>
+                    <p class="validation validation--largeur"></p>
                 </fieldset>
 
                 <div class="conteneurBoutons">
-                    <button class="bouton boutonSuivant" id="btnZone1Suivant">Étape suivante</button>
+                    <input type="button" class="bouton boutonSuivant" id="btnZone1Suivant" value="Étape suivante">
                 </div>
             </div>
 
             <div class="zoneForm zoneForm2">
                 <fieldset>
-                    <legend tabindex="0" aria-label="Ma date de naissance jour-mois-année" aria-hidden="true">Ma date de naissance (JJ-MM-AAAA)</legend>
-                    <div class="conteneurFieldset">
+                    <legend tabindex="0">Ma date de naissance</legend>
+                    <div class="conteneurFieldset zoneDateNaissance">
                         <div class="elementForm">
-                            <label for="naissance_jour">Jour:</label>
-                            <input id="naissance_jour" name="naissance_jour" type="number" maxlength="2">
+                            <label for="naissance_jour">Jour <span aria-label=", format: MM">(MM)</span>:</label>
+                            <div class="conteneurInput">
+                                <input id="naissance_jour" class="input input--petit" name="naissance_jour" type="number" min="01" max="31" required>
+                                <span class="validation validation--icone"></span>
+                            </div>
                         </div>
-
+ .
                         <div class="elementForm">
                             <label for="naissance_mois">Mois:</label>
-                            <select id="naissance_mois" name="naissance_mois">
-                                <option value="01">Janvier</option>
-                                <option value="02">Février</option>
-                                <option value="03">Mars</option>
-                                <option value="04">Avril</option>
-                                <option value="05">Mai</option>
-                                <option value="06">Juin</option>
-                                <option value="07">Juillet</option>
-                                <option value="08">Août</option>
-                                <option value="09">Septembre</option>
-                                <option value="10">Octobre</option>
-                                <option value="11">Novembre</option>
-                                <option value="12">Décembre</option>
-                            </select>
+                            <div class="conteneurInput">
+                                <select id="naissance_mois" class="select select--moyen" name="naissance_mois" required>
+                                    <option value="01">Janvier</option>
+                                    <option value="02">Février</option>
+                                    <option value="03">Mars</option>
+                                    <option value="04">Avril</option>
+                                    <option value="05">Mai</option>
+                                    <option value="06">Juin</option>
+                                    <option value="07">Juillet</option>
+                                    <option value="08">Août</option>
+                                    <option value="09">Septembre</option>
+                                    <option value="10">Octobre</option>
+                                    <option value="11">Novembre</option>
+                                    <option value="12">Décembre</option>
+                                </select>
+                                <span class="validation validation--icone"></span>
+                            </div>
                         </div>
 
                         <div class="elementForm">
-                            <label for="naissance_annee">Année:</label>
-                            <input id="naissance_annee" name="naissance_annee" type="number" maxlength="4">
+                            <label for="naissance_annee">Année  <span aria-label=", format: AAAA">(MM)</span>:</label>
+                            <div class="conteneurInput">
+                                <input id="naissance_annee" name="naissance_annee" class="input input--petit" type="number" maxlength="4" required>
+                                <span class="validation validation--icone"></span>
+                            </div>
                         </div>
+
+                        <p class="validation--erreur"></p>
                     </div>
 
-                    <p class="validation--erreur"></p>
                 </fieldset>
 
                 <fieldset>
-                    <legend tabindex="0">Mon code postal (A1A 1A1)</legend>
+                    <legend tabindex="0">Mon code postal</legend>
                     <div class="conteneurFieldset">
                         <div class="elementForm">
-                            <input type="text" maxlength="7">
+                            <div class="conteneurInput">
+                                <input id="code_postal" class="input input--moyen" name="code_postal" type="text" maxlength="7" required>
+                                <span class="validation"></span>
+                            </div>
                         </div>
                     </div>
+                    <span class="infoSupp">Format: A0A 0A0</span>
 
                     <p class="validation--erreur"></p>
                 </fieldset>
 
                 <div class="conteneurBoutons">
-                    <button class="bouton" id="btnZone2Precedent">Étape précédente</button>
-                    <button class="bouton boutonSuivant" id="btnZone2Suivant">Étape suivante</button>
+                    <input type="button" class="bouton" id="btnZone2Precedent" value="Étape précédente">
+                    <input type="button" class="bouton boutonSuivant" id="btnZone2Suivant" value="Étape suivante">
                 </div>
             </div>
 
@@ -149,17 +160,26 @@
                     <div class="conteneurFieldset">
                         <div class="elementForm">
                             <label for="pseudo">Prénom ou pseudo </label>
-                            <input id="pseudo" name="pseudo" id="pseudo" type="text" maxlength="20" pattern="[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*">
+                            <div class="conteneurInput">
+                                <input id="pseudo" name="pseudo" class="input input--grand" type="text" maxlength="20" pattern="[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*" required>
+                                <span class="validation validation--icone"></span>
+                            </div>
                         </div>
 
                         <div class="elementForm">
                             <label for="courriel">Courriel: </label>
-                            <input id="courriel" name="courriel" type="email" maxlength="40" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+                            <div class="conteneurInput">
+                                <input id="courriel" name="courriel" class="input input--grand" type="email" maxlength="40" required>
+                                <span class="validation validation--icone"></span>
+                            </div>
                         </div>
 
                         <div class="elementForm">
                             <label for="password">Mot de passe: </label>
-                            <input id="password" name="password" type="password" maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})">
+                            <div class="conteneurInput">
+                                <input id="password" name="password" class="input input--grand" type="password" maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})" required>
+                                <span class="validation validation--icone"></span>
+                            </div>
 
                             <input id="montrerMDP" class="visuallyhidden" type="checkbox" name="montrerMDP">
                             <label for="montrerMDP" class="checkBoxMontrerMDP" aria-label="Afficher le mot de passe"></label>
@@ -170,7 +190,7 @@
                 </fieldset>
 
                 <div class="conteneurBoutons" id="conteneurBoutonsZone3">
-                    <button class="bouton" id="btnZone3Precedente">Étape précédente</button>
+                    <input type="button" class="bouton" id="btnZone3Precedente" value="Étape précédente">
                     <button class="bouton boutonSuivant" id="btnSoumetre" type="submit">M'inscrire</button>
                 </div>
             </div>
@@ -182,7 +202,7 @@
     </footer>
 
     <!-- Chargement de objMessages, l'objet json des messages d'erreurs -->
-<!--     <script src="./assets/js/objMessages.js"></script>-->
+     <script src="assets/js/objMessages.json"></script>
 
     <!-- On importe toutes les classes de l'application et on instancie l'application dans app.js. -->
     <script src="./node_modules/requirejs/require.js" data-main="assets/js/app.js"></script>

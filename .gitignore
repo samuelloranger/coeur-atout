@@ -16,4 +16,4 @@ node_modules/
 #Dossiers de compilation
 assets/css/
 assets/js/
-!assets/js/objMessages.js
+!assets/js/objMessages.json

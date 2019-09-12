@@ -7,7 +7,7 @@ const browserSync = require("browser-sync").create();
 function styles(cb) {
     return gulp.src('./src/scss/**/*.scss')
         .pipe(sourceMaps.init())
-        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoPrefixer({
             cascade: false
         }))

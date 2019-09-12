@@ -1,6 +1,9 @@
 import {Validations} from './Validations';
-// import objMessages from './objMessages.js';
+import {Etapes} from './Etapes';
 
 document.querySelector("body").classList.add("js");
 
+new Etapes();
+
+// new Validations(objMessages);
 new Validations();

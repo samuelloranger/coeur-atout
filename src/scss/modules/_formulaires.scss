@@ -3,6 +3,25 @@
  */
 
 /**
+  * ------------------
+  * TABLE DES MATIÈRES
+  * ------------------
+  *  FORMULAIRE AVEC JAVASCRIPT ACTIVÉ
+  *   - zone étapes
+  *   - zone de formulaires cachée
+  *
+  *  FORMULAIRE
+  *  .formulaire
+  *   - entete
+  *   - fieldset
+  *      - infosSup
+  *      - conteneurFieldset
+  *      - zoneBtnRadios
+  *   - elementForm
+  *   - Correctifs pour les boutons de navigation de form
+ */
+
+/**
  * Les régles CSS qui sont sous .js sont lues seulement lorsque le javascript est activé sur la page
  * Sinon, les règles de bases sont lues
  */
@@ -10,39 +29,17 @@
   /**
    * Zone étapes
    */
-  .etapes{
-    display: block;
-    padding: 0;
-    margin: 0 auto 2% auto;
-    list-style-type: none;
-
-    @media(min-width: 800px){
+  .formulaire{
+    &__entete .etapes{
       display: flex;
-      max-width: 815px;
-    }
-
-    .elementMenu {
-      width: 160px;
-      height: 42px;
-      margin: 2% auto 0 auto;
-      text-align: center;
-      background-color: $gris-pale;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      @include fontSize(20px);
-      @include boxShadow();
 
       @media(min-width: 800px){
-        width: 260px;
-        height: 64px;
-        @include fontSize(30px);
+        display: flex;
       }
+    }
 
-      &__courant{
-        background-color: $rouge;
-        font-family: $policeTitres;
-      }
+    .elementForm .checkBoxMontrerMDP {
+      display: block;
     }
   }
 
@@ -58,15 +55,52 @@
   }
 }
 
-.etapes{
-  display: none;
-}
-
 .formulaire{
+  /**
+   * Étapes en haut
+   * Est en display none pour lorsque le Javascript est désactivé
+   */
   &__entete{
     h1{
       text-align: center;
       margin-top: 0;
+    }
+
+    .etapes{
+      display: none;
+      flex-direction: column;
+      padding: 0;
+      margin: 0 auto 2% auto;
+      list-style-type: none;
+
+      @media(min-width: 800px){
+        max-width: 815px;
+        flex-direction: row;
+      }
+
+      .elementEtapes {
+        width: 160px;
+        height: 42px;
+        margin: 2% auto 0 auto;
+        text-align: center;
+        background-color: $gris-pale;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include fontSize(20px);
+        transition: 0.15s ease-in-out;
+
+        @media(min-width: 800px){
+          width: 260px;
+          height: 64px;
+          @include fontSize(30px);
+        }
+
+        &__courant{
+          background-color: $rouge;
+          font-family: $policeTitres;
+        }
+      }
     }
   }
 
@@ -83,6 +117,12 @@
       @media(min-width: $tablettePortrait){
         @include fontSize(30px);
       }
+    }
+
+    .infoSupp{
+      display: block;
+      width: 85%;
+      margin: 0 auto;
     }
 
     .conteneurFieldset{
@@ -105,89 +145,101 @@
         flex-direction: row;
         justify-content: space-between;
       }
-    }
 
-    .radioBtn{
-      display: flex;
-      align-items: center;
-      margin-bottom: 5%;
-
-      @media(min-width: $tablettePortrait){
-        margin-top: 2%;
-        margin-bottom: 2%;
-        width: 27.5%;
-
-        &:nth-of-type(3n){
-          width: 45%;
-        }
-      }
-
-      input{
-        opacity: 0;
-      }
-
-      /**
-       * Puisque l'icône est dans le label, on doit mettre le label en display flex
-       */
-      label{
-        width: 100%;
+      .radioBtn{
         display: flex;
         align-items: center;
+        margin-bottom: 5%;
 
-        .icone{
-          display: inline-block;
-          background-image: url("../assets/images/icones/sprites-icones.svg");
-          background-size: 200px;
-          background-repeat: no-repeat;
-          min-width: 50px;
-          min-height: 50px;
-          top: 0;
-          left: 0;
-          margin-right: 2%;
+        @media(min-width: $tablettePortrait){
+          margin-top: 2%;
+          margin-bottom: 2%;
+          width: 27.5%;
 
+          &:nth-of-type(3n){
+            width: 45%;
+          }
+        }
+
+        input{
+          opacity: 0;
+        }
+
+        /**
+         * Puisque l'icône est dans le label, on doit mettre le label en display flex
+         */
+        label{
+          width: 100%;
+          display: flex;
+          align-items: center;
+
+          .icone{
+            display: inline-block;
+            background-image: url("../assets/images/icones/sprites-icones.svg");
+            background-size: 200px;
+            background-repeat: no-repeat;
+            min-width: 50px;
+            min-height: 50px;
+            top: 0;
+            left: 0;
+            margin-right: 2%;
+
+            &--femme{
+              background-position: 0 0;
+            }
+
+            &--homme{
+              background-position: -50px 0;
+            }
+
+            &--autre{
+              background-position: -100px 0;
+            }
+          }
+        }
+
+        /**
+         * Zone cachée
+         */
+        input:focus + label{
+          //Styles de focus de chrome
+          outline-color: rgb(77, 144, 254); // #4D90FE
+          outline-offset: -2px;
+          outline-style: auto;
+          outline-width: 5px;
+        }
+
+        /**
+         * Lorsque le input est coché, on change les images de background des icônes respectifs
+         */
+        input:checked + label .icone{
           &--femme{
-            background-position: 0 0;
+            background-position: 0 -50px;
           }
 
           &--homme{
-            background-position: -50px 0;
+            background-position: -50px -50px;
           }
 
           &--autre{
-            background-position: -100px 0;
+            background-position: -100px -50px;
           }
-        }
-      }
-
-      /**
-       * Zone cachée
-       */
-      input:focus + label{
-        //Styles de focus de chrome
-        outline-color: rgb(77, 144, 254); // #4D90FE
-        outline-offset: -2px;
-        outline-style: auto;
-        outline-width: 5px;
-      }
-
-      /**
-       * Lorsque le input est coché, on change les images de background des icônes respectifs
-       */
-      input:checked + label .icone{
-        &--femme{
-          background-position: 0 -50px;
-        }
-
-        &--homme{
-          background-position: -50px -50px;
-        }
-
-        &--autre{
-          background-position: -100px -50px;
         }
       }
     }//Fin zontBtnRadios
 
+    .zoneDateNaissance{
+      display: flex;
+      flex-direction: column;
+
+      @media(min-width: $tablettePortrait){
+        flex-direction: row;
+
+        .elementForm{
+          margin-right: 5%;
+        }
+      }
+    }
 
     /**
      * Éléments de formulaires
@@ -197,13 +249,28 @@
       flex-direction: column;
       position: relative;
 
-      input, select{
+      .conteneurInput{
+        display: flex;
+      }
+
+      .input, .select{
         border: 3px solid black;
-        width: 240px;
         padding-left: 3px;
 
-        @media(min-width: $tablettePortrait){
-          width: 350px;
+        &--petit{
+          width: 75px;
+        }
+
+        &--moyen{
+          width: 190px;
+        }
+
+        &--grand{
+          width: 240px;
+
+          @media(min-width: $tablettePortrait){
+            width: 350px;
+          }
         }
       }
 
@@ -222,26 +289,25 @@
         }
       }
 
-      &:last-of-type{
-        .checkBoxMontrerMDP{
-          background-image: url("../assets/images/icones/sprites-icones.svg");
-          background-size: 100px;
-          background-repeat: no-repeat;
-          background-position: 0 -50px;
-          width: 25px;
-          height: 25px;
-          position: absolute;
-          bottom: 3px;
-          left: 215px;
+      .checkBoxMontrerMDP{
+        display: none;
+        background-image: url("../assets/images/icones/sprites-icones.svg");
+        background-size: 100px;
+        background-position: -25px -50px;
+        background-repeat: no-repeat;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        bottom: 3px;
+        left: 215px;
 
-          @media(min-width: $tablettePortrait){
-            left: 320px
-          }
+        @media(min-width: $tablettePortrait){
+          left: 320px
         }
+      }
 
-        #montrerMDP:checked + label{
-          background-position: -25px -50px;
-        }
+      #montrerMDP:checked + label{
+        background-position: 0 -50px;
       }
     }
   }
@@ -255,15 +321,11 @@
     &1, &2, &3{
       margin-bottom: 3%;
 
-      &__cache{
-        display: none;
-      }
-
       .conteneurBoutons{
         display: flex;
         justify-content: flex-end;
 
-        button{
+        input[type="button"]{
           display: none;
         }
 

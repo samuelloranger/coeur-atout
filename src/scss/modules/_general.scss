@@ -11,15 +11,51 @@
 }
 
 .validation{
-  &--erreur{
-    color: $rouge;
+  display: block;
+  margin: 0 auto;
+
+  &--largeur{
     width: 85%;
-    margin: 0 auto;
-    font-size: 18px;
   }
 
-  &Container--erreur{
-    border: 3px solid $rouge;
+  &--icone{
+    &:before{
+      display: inline-block;
+      content: " ";
+      margin-right: 5px;
+      align-self: center;
+      width: 24px;
+      height: 24px;
+      margin-left: 4px;
+      background-size: 96px;
+      vertical-align: sub;
+    }
+
+    &Ok{
+      &:before{
+        background-image: url("../assets/images/icones/sprites-icones.svg");
+        background-position: -72px 0px;
+      }
+    }
+
+    &Erreur{
+      &:before {
+        background-image: url("../assets/images/icones/sprites-icones.svg");
+        background-position: -72px -24px;
+      }
+    }
+  }
+
+  &--ok{
+    color: $vert-fonce;
+  }
+
+  &--erreur{
+    color: $erreur;
+  }
+
+  &--containerErreur{
+    border: 3px solid $erreur !important;
   }
 }
 
@@ -44,11 +80,16 @@ noscript{
   @include fontSize(16px);
   @include boxShadow();
   font-family: $policeTitres;
+  transition: 0.15s ease-in-out;
 
   @media(min-width: 800px){
     width: 230px;
     height: 55px;
     @include fontSize(25px);
+  }
+
+  &:hover{
+    transform: scale(1.08);
   }
 
   &Suivant{
