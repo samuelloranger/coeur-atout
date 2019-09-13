@@ -16,6 +16,7 @@
 
   &--largeur{
     width: 85%;
+    margin-top: 2%;
   }
 
   &--icone{
@@ -59,6 +60,8 @@
   }
 }
 
+
+
 noscript{
   p{
     width: 100%;
@@ -88,8 +91,14 @@ noscript{
     @include fontSize(25px);
   }
 
-  &:hover{
-    transform: scale(1.08);
+  &:not(&Disabled){
+    &:hover{
+      transform: scale(1.08);
+    }
+  }
+
+  &Disabled{
+    filter: grayscale(1);
   }
 
   &Suivant{

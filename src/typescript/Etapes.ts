@@ -11,6 +11,7 @@ export class Etapes {
     private btnZone2Precedent:HTMLInputElement = null;
     private btnZone2Suivant:HTMLInputElement = null;
     private btnZone3Precedente:HTMLInputElement = null;
+    private btnEnvoyer:HTMLInputElement = null;
 
     // Constructeur
     constructor(){
@@ -22,9 +23,20 @@ export class Etapes {
      * Fonction éxécutée au lancement de l'application
      */
     private chargerFormulaire = () => {
+        //Zones
         this.arrZoneFormulaires = Array.apply(null, document.querySelectorAll(".zoneForm"));
+
+        //Étapes
         this.arrEtapes = Array.apply(null, document.querySelectorAll(".elementEtapes"));
 
+        //Boutons de zone
+        this.btnZone1Suivant = document.querySelector("#btnZone1Suivant");
+        this.btnZone2Precedent = document.querySelector("#btnZone2Precedent");
+        this.btnZone2Suivant = document.querySelector("#btnZone2Suivant");
+        this.btnZone3Precedente = document.querySelector("#btnZone3Precedente");
+        this.btnEnvoyer = document.querySelector("#btnSoumetre");
+
+        //On cache les zones deformulaires
         this.arrZoneFormulaires[1].classList.add("visuallyhidden");
         this.arrZoneFormulaires[2].classList.add("visuallyhidden");
     };
@@ -33,22 +45,18 @@ export class Etapes {
      * Fonction qui ajoute les écouteurs d'évènements sur les éléments
      */
     private ajouterEcouteursEvenements = () => {
-        this.btnZone1Suivant = document.querySelector("#btnZone1Suivant");
         this.btnZone1Suivant.addEventListener("click", () => {
             this.changerZoneForm(1);
         });
 
-        this.btnZone2Precedent = document.querySelector("#btnZone2Precedent")
         this.btnZone2Precedent.addEventListener("click", () => {
             this.changerZoneForm(2);
         });
 
-        this.btnZone2Suivant = document.querySelector("#btnZone2Suivant")
         this.btnZone2Suivant.addEventListener("click", () => {
             this.changerZoneForm(2, true);
         });
 
-        this.btnZone3Precedente = document.querySelector("#btnZone3Precedente")
         this.btnZone3Precedente.addEventListener("click", () => {
             this.changerZoneForm(3);
         });
@@ -102,7 +110,26 @@ export class Etapes {
         }
     }
 
-    // Méthodes utilitaires
+    private activerBtnEtapeSuivante = (numeroBtn:number) => {
+        let refBtn:HTMLInputElement = null;
+
+        switch(numeroBtn){
+            case 1:
+                refBtn = this.btnZone1Suivant;
+                break;
+            case 2:
+                refBtn = this.btnZone2Suivant;
+                break;
+            case 3:
+                refBtn = this.btnEnvoyer;
+                break;
+            default:
+                break;
+        }
+
+        refBtn.removeAttribute("disabled");
+        refBtn.classList.remove("boutonDisabled");
+    }
 
 
 }

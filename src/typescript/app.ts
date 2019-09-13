@@ -3,7 +3,6 @@ import {Etapes} from './Etapes';
 
 document.querySelector("body").classList.add("js");
 
-new Etapes();
+const objEtapes = new Etapes();
 
-// new Validations(objMessages);
-new Validations();
+new Validations(objEtapes);

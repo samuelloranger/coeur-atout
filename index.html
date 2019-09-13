@@ -8,7 +8,7 @@
     <meta name="keywords" content="coeur, amour, rencontre, romantisme, web, formulaire">
     <meta name="author" content="Samuel Loranger(TIM CSF @2019)">
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
-    <link rel="icon" href="/assets/images/icones/favicon.png" />
+    <link rel="icon" href="assets/images/icones/favicon.png" />
 </head>
 <body>
     <noscript><p>Attention: Ce site fonctionne mieux lorsque JavaScript est activé.</p></noscript>
@@ -58,22 +58,22 @@
                     <p class="validation validation--largeur"></p>
                 </fieldset>
 
-                <fieldset class="zoneForm1 genreRecherche">
+                <fieldset class="zoneForm1 genreRecherche" required>
                     <legend tabindex="0">Je recherche: </legend>
                     <span class="infoSupp">Vous pouvez sélectionner plus d'un choix</span>
-                    <div class="conteneurFieldset zoneBtnRadios">
+                    <div class="conteneurFieldset zoneBtnRadios" >
                         <div class="radioBtn" role="checkbox" aria-label="Une femme">
-                            <input id="genre_recherche_femme" name="genre_recherche" type="checkbox" value="Femme" aria-hidden="true">
+                            <input id="genre_recherche_femme" class="genre_recherche" name="genre_recherche_femme" type="checkbox" value="Femme" aria-hidden="true">
                             <label for="genre_recherche_femme"><span class="icone icone--femme"></span>Une femme</label>
                         </div>
 
                         <div class="radioBtn" role="checkbox" aria-label="Un homme">
-                            <input id="genre_recherche_homme" name="genre_recherche" type="checkbox" value="Homme" aria-hidden="true">
+                            <input id="genre_recherche_homme" class="genre_recherche" name="genre_recherche_homme" type="checkbox" value="Homme" aria-hidden="true">
                             <label for="genre_recherche_homme" aria-hidden="true"><span class="icone icone--homme"></span>Un homme</label>
                         </div>
 
                         <div class="radioBtn" role="checkbox" aria-label="Une autre identité de genre">
-                            <input id="genre_recherche_autre" name="genre_recherche" type="checkbox" value="Autre" aria-hidden="true">
+                            <input id="genre_recherche_autre" class="genre_recherche" name="genre_recherche_autre" type="checkbox" value="Autre" aria-hidden="true">
                             <label for="genre_recherche_autre" aria-hidden="true"><span class="icone icone--autre"></span>Une autre identité de genre</label>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                 </fieldset>
 
                 <div class="conteneurBoutons">
-                    <input type="button" class="bouton boutonSuivant" id="btnZone1Suivant" value="Étape suivante">
+                    <input type="button" class="bouton boutonSuivant boutonDisabled" id="btnZone1Suivant" value="Étape suivante" disabled>
                 </div>
             </div>
 
@@ -94,7 +94,6 @@
                             <label for="naissance_jour">Jour <span aria-label=", format: MM">(MM)</span>:</label>
                             <div class="conteneurInput">
                                 <input id="naissance_jour" class="input input--petit" name="naissance_jour" type="number" min="01" max="31" required>
-                                <span class="validation validation--icone"></span>
                             </div>
                         </div>
  .
@@ -115,7 +114,6 @@
                                     <option value="11">Novembre</option>
                                     <option value="12">Décembre</option>
                                 </select>
-                                <span class="validation validation--icone"></span>
                             </div>
                         </div>
 
@@ -123,13 +121,11 @@
                             <label for="naissance_annee">Année  <span aria-label=", format: AAAA">(MM)</span>:</label>
                             <div class="conteneurInput">
                                 <input id="naissance_annee" name="naissance_annee" class="input input--petit" type="number" maxlength="4" required>
-                                <span class="validation validation--icone"></span>
                             </div>
                         </div>
 
-                        <p class="validation--erreur"></p>
                     </div>
-
+                    <p class="validation validation--largeur"></p>
                 </fieldset>
 
                 <fieldset>
@@ -149,7 +145,7 @@
 
                 <div class="conteneurBoutons">
                     <input type="button" class="bouton" id="btnZone2Precedent" value="Étape précédente">
-                    <input type="button" class="bouton boutonSuivant" id="btnZone2Suivant" value="Étape suivante">
+                    <input type="button" class="bouton boutonSuivant boutonDisabled" id="btnZone2Suivant" value="Étape suivante" disabled>
                 </div>
             </div>
 
@@ -177,7 +173,7 @@
                         <div class="elementForm">
                             <label for="password">Mot de passe: </label>
                             <div class="conteneurInput">
-                                <input id="password" name="password" class="input input--grand" type="password" maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})" required>
+                                <input id="password" name="password" class="input input--grand" type="password" maxlength="15" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,12}$" required>
                                 <span class="validation validation--icone"></span>
                             </div>
 
@@ -200,9 +196,6 @@
     <footer>
         <small>Tous droits réservés à Coeur Atout Inc. Dernière mise à jour - septembre 2019.</small>
     </footer>
-
-    <!-- Chargement de objMessages, l'objet json des messages d'erreurs -->
-     <script src="assets/js/objMessages.json"></script>
 
     <!-- On importe toutes les classes de l'application et on instancie l'application dans app.js. -->
     <script src="./node_modules/requirejs/require.js" data-main="assets/js/app.js"></script>
