@@ -39,6 +39,9 @@ export class Etapes {
         //On cache les zones deformulaires
         this.arrZoneFormulaires[1].classList.add("visuallyhidden");
         this.arrZoneFormulaires[2].classList.add("visuallyhidden");
+
+        this.btnEnvoyer.setAttribute("disabled", "disabled");
+        this.btnEnvoyer.classList.add("boutonDisabled");
     };
 
     /**
@@ -77,7 +80,7 @@ export class Etapes {
                 //Changement du visuel de l'étape
                 break;
             case 2:
-                if(etat ){
+                if(etat){
                     //Changement de zone
                     this.arrZoneFormulaires[1].classList.add("visuallyhidden");
                     this.arrZoneFormulaires[2].classList.remove("visuallyhidden");
@@ -108,9 +111,9 @@ export class Etapes {
             default:
                 break;
         }
-    }
+    };
 
-    private activerBtnEtapeSuivante = (numeroBtn:number) => {
+    private modifierBtnEtapeSuivante = (numeroBtn:number, activation:boolean) => {
         let refBtn:HTMLInputElement = null;
 
         switch(numeroBtn){
@@ -127,9 +130,16 @@ export class Etapes {
                 break;
         }
 
-        refBtn.removeAttribute("disabled");
-        refBtn.classList.remove("boutonDisabled");
-    }
+        if(activation){
+            refBtn.removeAttribute("disabled");
+            refBtn.classList.remove("boutonDisabled");
+        }
+        else{
+            refBtn.setAttribute("disabled", "disabled");
+            refBtn.classList.add("boutonDisabled");
+        }
+
+    };
 
 
 }

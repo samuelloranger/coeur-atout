@@ -7,8 +7,13 @@
  * base (BoxSizing, Clearfix)
  * accessibilité
  * typographie
- * @todo Personnaliser au besoin
  */
+
+@mixin animationBackgroundColor{
+    background: linear-gradient(270deg, #EB3125, #fd3bac);
+    background-size: 400% 400%;
+    animation: logo-background 8s ease infinite;
+}
 
 @mixin textShadow{
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);

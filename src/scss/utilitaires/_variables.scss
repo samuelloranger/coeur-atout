@@ -19,8 +19,13 @@
   font-family: "Kanit-Regular"; src: url('../assets/fonts/Kanit/Kanit-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: "HearthFont"; src: url('../assets/fonts/bonushearths/BonusHearts.ttf') format('truetype');
+}
+
 $policeTitres: "Kanit-Bold", Arial-Black, sans-serif;
 $policeCorps: "Kanit-Regular", Arial, serif;
+$policeCoeur: "HearthFont", Arial, serif;
 
 /** Palette de couleurs **/
 // Au besoin utiliser http://chir.ag/projects/name-that-color pour nommer les couleurs

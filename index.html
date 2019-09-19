@@ -14,8 +14,7 @@
     <noscript><p>Attention: Ce site fonctionne mieux lorsque JavaScript est activé.</p></noscript>
     <header>
         <div class="conteneurLogo">
-            <h1 style="display: none;" aria-disabled="true">Coeur Atout</h1>
-            <img class="logo" src="assets/images/icones/logo_coeur_atout.svg" alt="Coeur Atout">
+            <h1 class="logo" aria-label="Coeur Atout">C<span class="coeur">P</span>eur At<span class="coeur">P</span>ut</h1>
             <h2>Jouer la carte romantique</h2>
         </div>
 
@@ -91,7 +90,7 @@
                     <legend tabindex="0">Ma date de naissance</legend>
                     <div class="conteneurFieldset zoneDateNaissance">
                         <div class="elementForm">
-                            <label for="naissance_jour">Jour <span aria-label=", format: MM">(MM)</span>:</label>
+                            <label for="naissance_jour">Jour <span aria-label=", format: JJ">(JJ)</span>:</label>
                             <div class="conteneurInput">
                                 <input id="naissance_jour" class="input input--petit" name="naissance_jour" type="number" min="01" max="31" required>
                             </div>
@@ -118,7 +117,7 @@
                         </div>
 
                         <div class="elementForm">
-                            <label for="naissance_annee">Année  <span aria-label=", format: AAAA">(MM)</span>:</label>
+                            <label for="naissance_annee">Année  <span aria-label=", format: AAAA">(AAAA)</span>:</label>
                             <div class="conteneurInput">
                                 <input id="naissance_annee" name="naissance_annee" class="input input--petit" type="number" maxlength="4" required>
                             </div>
@@ -130,17 +129,15 @@
 
                 <fieldset>
                     <legend tabindex="0">Mon code postal</legend>
+                    <span class="infoSupp">Format: A0A 0A0</span>
                     <div class="conteneurFieldset">
                         <div class="elementForm">
                             <div class="conteneurInput">
-                                <input id="code_postal" class="input input--moyen" name="code_postal" type="text" maxlength="7" required>
-                                <span class="validation"></span>
+                                <input id="code_postal" class="input input--moyen" name="code_postal" type="text" maxlength="7" pattern="[A-Z]\d[A-Z] \d[A-Z]\d" required>
                             </div>
                         </div>
                     </div>
-                    <span class="infoSupp">Format: A0A 0A0</span>
-
-                    <p class="validation--erreur"></p>
+                    <p class="validation validation--largeur"></p>
                 </fieldset>
 
                 <div class="conteneurBoutons">
@@ -158,32 +155,44 @@
                             <label for="pseudo">Prénom ou pseudo </label>
                             <div class="conteneurInput">
                                 <input id="pseudo" name="pseudo" class="input input--grand" type="text" maxlength="20" pattern="[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*" required>
-                                <span class="validation validation--icone"></span>
                             </div>
+                            <span class="validation validation--icone"></span>
+
                         </div>
 
                         <div class="elementForm">
                             <label for="courriel">Courriel: </label>
                             <div class="conteneurInput">
-                                <input id="courriel" name="courriel" class="input input--grand" type="email" maxlength="40" required>
-                                <span class="validation validation--icone"></span>
+                                <input id="courriel" name="courriel" class="input input--grand" type="email" maxlength="40" pattern="^[a-zA-Z0-9.!#$%&'*+\=?^_`{|}~-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" required>
                             </div>
+                            <span class="validation validation--icone"></span>
                         </div>
 
                         <div class="elementForm">
                             <label for="password">Mot de passe: </label>
                             <div class="conteneurInput">
                                 <input id="password" name="password" class="input input--grand" type="password" maxlength="15" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,12}$" required>
-                                <span class="validation validation--icone"></span>
                             </div>
+                            <span class="validation validation--icone"></span>
 
                             <input id="montrerMDP" class="visuallyhidden" type="checkbox" name="montrerMDP">
                             <label for="montrerMDP" class="checkBoxMontrerMDP" aria-label="Afficher le mot de passe"></label>
                         </div>
                     </div>
 
-                    <p class="validation--erreur"></p>
+<!--                    <p class="validation&#45;&#45;erreur"></p>-->
+
                 </fieldset>
+
+                <div class="termesUtilisation">
+                    <p class="infoSupp">Votre consentement légal est requis.</p>
+                    <div class="checkbox">
+                        <input type="checkbox" id="termesUtilisation" name="termesUtilisation" required>
+                        <label for="termesUtilisation">J'accepte les <a href='#'>termes d'utilisation.</a></label>
+                    </div>
+
+                    <p class="validation validation--icone"></p>
+                </div>
 
                 <div class="conteneurBoutons" id="conteneurBoutonsZone3">
                     <input type="button" class="bouton" id="btnZone3Precedente" value="Étape précédente">

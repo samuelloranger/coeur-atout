@@ -298,16 +298,35 @@
         width: 25px;
         height: 25px;
         position: absolute;
-        bottom: 3px;
+        top: 45px;
         left: 215px;
 
         @media(min-width: $tablettePortrait){
-          left: 320px
+          left: 325px
         }
       }
 
       #montrerMDP:checked + label{
         background-position: 0 -50px;
+      }
+    }
+  }
+
+  /**
+   * Correctifs des zones de consentement
+   */
+  .termesUtilisation{
+    .infoSupp{
+      margin-bottom: 0;
+    }
+
+    .checkbox {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      input{
+        margin-right: 8px;
       }
     }
   }

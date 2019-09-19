@@ -10,13 +10,15 @@
   margin: 0 auto;
 }
 
+
 .validation{
   display: block;
-  margin: 0 auto;
+  margin-top: 1%;
 
   &--largeur{
     width: 85%;
-    margin-top: 2%;
+    height: 28px;
+    margin: 2% auto 0 auto;
   }
 
   &--icone{
@@ -47,6 +49,22 @@
     }
   }
 
+  &--champ{
+    width: 24px;
+    height: 24px;
+    margin-left: 4px;
+
+    &Ok{
+      display: inline-block;
+      content: " ";
+      align-self: center;
+      background-size: 96px;
+      vertical-align: sub;
+      background-image: url("../assets/images/icones/sprites-icones.svg");
+      background-position: -72px 0px;
+    }
+  }
+
   &--ok{
     color: $vert-fonce;
   }
@@ -59,7 +77,6 @@
     border: 3px solid $erreur !important;
   }
 }
-
 
 
 noscript{

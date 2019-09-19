@@ -18,18 +18,32 @@ header{
 
     @media(min-width: $tablettePortrait){
       padding: 2%;
-      width: 50%;
+      width: 70%;
     }
 
     .logo{
-      width: 100%;
-      max-width: 535px;
+      font-size: 65px;
+      line-height: 0.8;
+      color: transparent;
+      margin: 0;
+      text-align: center;
+      @include animationBackgroundColor();
+      -webkit-background-clip: text;
       @include filterShadow();
 
       @media(min-width: $tablettePortrait){
-        //max-width: 35%;
+        text-align: left;
+      }
+
+      @media(min-width: 800px){
+        font-size: 80px;
+      }
+
+      .coeur{
+        font-family: $policeCoeur;
       }
     }
+
     h2{
        margin: 0;
        text-align: center;
@@ -52,4 +66,10 @@ header{
       @include fontSize(30px);
     }
   }
+}
+
+@keyframes logo-background {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
