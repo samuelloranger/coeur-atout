@@ -57,7 +57,7 @@ export class Validations {
      */
     constructor(objEtapes:Etapes) {
         this.refObjEtapes = objEtapes;
-
+        
         fetch("assets/js/objMessages.json")
             .then(response => response.json())
             .then(response => {

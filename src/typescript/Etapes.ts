@@ -3,15 +3,15 @@
  */
 export class Etapes {
     //Arrays d'éléments
-    private arrZoneFormulaires:Array<HTMLElement> = [];
-    private arrEtapes:Array<HTMLElement> = [];
+    private arrZoneFormulaires:Array<HTMLElement> = Array.apply(null, document.querySelectorAll(".zoneForm"));
+    private arrEtapes:Array<HTMLElement> = Array.apply(null, document.querySelectorAll(".elementEtapes"));
 
     //Éléments boutons
-    private btnZone1Suivant:HTMLInputElement = null;
-    private btnZone2Precedent:HTMLInputElement = null;
-    private btnZone2Suivant:HTMLInputElement = null;
-    private btnZone3Precedente:HTMLInputElement = null;
-    private btnEnvoyer:HTMLInputElement = null;
+    private btnZone1Suivant:HTMLInputElement = document.querySelector("#btnZone1Suivant");
+    private btnZone2Precedent:HTMLInputElement = document.querySelector("#btnZone2Precedent");
+    private btnZone2Suivant:HTMLInputElement = document.querySelector("#btnZone2Suivant");
+    private btnZone3Precedente:HTMLInputElement = document.querySelector("#btnZone3Precedente");
+    private btnEnvoyer:HTMLInputElement = document.querySelector("#btnSoumetre");
 
     // Constructeur
     constructor(){
@@ -23,19 +23,6 @@ export class Etapes {
      * Fonction éxécutée au lancement de l'application
      */
     private chargerFormulaire = () => {
-        //Zones
-        this.arrZoneFormulaires = Array.apply(null, document.querySelectorAll(".zoneForm"));
-
-        //Étapes
-        this.arrEtapes = Array.apply(null, document.querySelectorAll(".elementEtapes"));
-
-        //Boutons de zone
-        this.btnZone1Suivant = document.querySelector("#btnZone1Suivant");
-        this.btnZone2Precedent = document.querySelector("#btnZone2Precedent");
-        this.btnZone2Suivant = document.querySelector("#btnZone2Suivant");
-        this.btnZone3Precedente = document.querySelector("#btnZone3Precedente");
-        this.btnEnvoyer = document.querySelector("#btnSoumetre");
-
         //On cache les zones deformulaires
         this.arrZoneFormulaires[1].classList.add("visuallyhidden");
         this.arrZoneFormulaires[2].classList.add("visuallyhidden");
@@ -74,6 +61,7 @@ export class Etapes {
                 this.arrZoneFormulaires[1].classList.remove("visuallyhidden");
 
                 //Changement du visuel de l'étape
+                this.arrEtapes[0].classList.add("elementEtapes__complete");
                 this.arrEtapes[0].classList.remove("elementEtapes__courant");
                 this.arrEtapes[1].classList.add("elementEtapes__courant");
 
@@ -87,6 +75,7 @@ export class Etapes {
 
                     //Changement du visuel de l'étape
                     this.arrEtapes[1].classList.remove("elementEtapes__courant");
+                    this.arrEtapes[1].classList.add("elementEtapes__complete");
                     this.arrEtapes[2].classList.add("elementEtapes__courant");
                 }
                 else{
@@ -96,6 +85,7 @@ export class Etapes {
 
                     //Changement du visuel de l'étape
                     this.arrEtapes[0].classList.add("elementEtapes__courant");
+                    this.arrEtapes[0].classList.remove("elementEtapes__complete");
                     this.arrEtapes[1].classList.remove("elementEtapes__courant");
                 }
                 break;
@@ -106,6 +96,7 @@ export class Etapes {
 
                 //Changement du visuel de l'étape
                 this.arrEtapes[1].classList.add("elementEtapes__courant");
+                this.arrEtapes[1].classList.add("elementEtapes__complete");
                 this.arrEtapes[2].classList.remove("elementEtapes__courant");
                 break;
             default:

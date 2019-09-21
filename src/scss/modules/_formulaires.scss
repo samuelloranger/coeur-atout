@@ -100,6 +100,11 @@
           background-color: $rouge;
           font-family: $policeTitres;
         }
+
+        &__complete{
+          color: white;
+          background-color: $gris;
+        }
       }
     }
   }

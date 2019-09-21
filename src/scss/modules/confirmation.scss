@@ -1,0 +1,28 @@
+.confirmation{
+  text-align: center;
+
+  h3{
+    margin: 0 auto;
+    font-family: $policeDecoration;
+    color: transparent;
+    background-color: $gris-pale;
+    -webkit-background-clip: text;
+    text-shadow: 1px 2px 3px $gris-pale, 0 0 0 #000, 1px 2px 3px $gris-pale;
+    @include fontSize(90px);
+
+    &::selection{
+      background-color: #5af;
+      color: white;
+      text-shadow: none;
+    }
+  }
+
+  p{
+    margin: 5% auto;
+  }
+
+  a{
+    display: block;
+    margin: 0 auto;
+  }
+}
