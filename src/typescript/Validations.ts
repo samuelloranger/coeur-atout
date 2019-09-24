@@ -29,6 +29,7 @@ export class Validations {
     private inputMDP:HTMLInputElement = document.querySelector("#password");
     private checkboxMontrerMDP:HTMLInputElement = document.querySelector("#montrerMDP");
 
+    //Checkbox des termes d'utilisation
     private refTermesUtilisation:HTMLInputElement = document.querySelector("#termesUtilisation");
 
     private refObjEtapes = null;
@@ -57,14 +58,18 @@ export class Validations {
      */
     constructor(objEtapes:Etapes) {
         this.refObjEtapes = objEtapes;
-        
+
+        //On va chercher les informations dans le fichier json à l'aide d'un fetch
         fetch("assets/js/objMessages.json")
+            //Après que le fetch ait terminé
             .then(response => response.json())
+            //Après que la réponse json ait été enregistrée
             .then(response => {
                 this.objMessages = response;
-        });
+                this.ajouterEcouteursEvenements();
+            });
 
-        this.ajouterEcouteursEvenements();
+        //On désactive la validation automatique du formulaire
         document.querySelector('form').noValidate = true;
     }
 
@@ -130,7 +135,9 @@ export class Validations {
         });
 
         //Checkbox bouton montrer mot de passe
-        this.checkboxMontrerMDP.addEventListener("click", this.basculerTypeMotDePasse);
+        this.checkboxMontrerMDP.addEventListener("click", () => {
+            this.basculerTypeMotDePasse(this.checkboxMontrerMDP);
+        });
     };
 
     // Méthodes de validation
@@ -140,6 +147,7 @@ export class Validations {
      * @param type: Type de validation (ex: date de naissance)
      */
     private validerJeSuis = (element:HTMLInputElement, type:string):void => {
+        //Si l'élément est vide
         if(this.verifierSiVide(element)){
             this.afficherErreur(element, type, "vide");
             this.arrEtapes.etape1.genre = false;
@@ -150,6 +158,7 @@ export class Validations {
             this.arrEtapes.etape1.genre = true;
         }
 
+        //On véréfie si l'étape 1 est complétée à 100%
         this.verifierEtape(1);
     };
 
@@ -171,8 +180,6 @@ export class Validations {
                 }
             });
 
-            console.log("autreElemCoche: " + autreElemCoche);
-
             //Si aucun autre élément n'est coché, on affiche l'erreur
             if (!autreElemCoche) {
                 this.afficherErreur(element, type, "vide");
@@ -185,6 +192,7 @@ export class Validations {
             this.arrEtapes.etape1.genreRecherche = true;
         }
 
+        //On véréfie si l'étape 1 est complétée à 100%
         this.verifierEtape(1);
     };
 
@@ -194,6 +202,7 @@ export class Validations {
      * @param type: Type de validation (ex: date de naissance)
      */
     private validerJourNaissance = (element:HTMLInputElement, type:string):void => {
+        //Si l'étape n'est pas vide
         if(!this.verifierSiVide(element)){
             this.afficherErreur(element, type, "vide");
             this.arrEtapes.etape2.dateNaissance = false;
@@ -232,6 +241,7 @@ export class Validations {
             }
         }
 
+        //On véréfie si l'étape 1 est complétée à 100%
         this.verifierEtape(2);
     };
 
@@ -272,6 +282,7 @@ export class Validations {
             this.arrEtapes.etape2.dateNaissance = false;
         }
 
+        //On véréfie si l'étape 2 est complétée à 100%
         this.verifierEtape(2);
     };
 
@@ -309,21 +320,34 @@ export class Validations {
             this.arrEtapes.etape2.dateNaissance = false;
         }
 
+        //On véréfie si l'étape 2 est complétée à 100%
         this.verifierEtape(2);
     };
 
     /**
      * Fonction pour éviter de répéter les 4 mêmes lignes dans la zone de date
      * @param element: L'élément qui a appellé la fonction
-     * @param type: Type d'élément
+     * @param type: Type de validation (ex: date de naissance)
      */
     private montrerSuccesZoneDate = (element:HTMLInputElement, type:string) => {
+        //On efface l'erreur du mois
         this.effacerErreur(this.refJourNaissance);
+
+        //On efface l'erreur de l'année
         this.effacerErreur(this.refAnneeNaissance);
+
+        //On affiche le succès
         this.montrerSuccesZoneForm(element, type);
+
+        //On change le statut de l'étape de validation de la date de naissance
         this.arrEtapes.etape2.dateNaissance = true;
     };
 
+    /**
+     * Fonction de validaiton du code postal
+     * @param element L'élément qui a appellé la fonction
+     * @param type: Type de validation (ex: date de naissance)
+     */
     private validerCodePostal = (element:HTMLInputElement, type:string) => {
         //Si l'input n'est pas vide...
         if(this.verifierSiVide(element)){
@@ -363,6 +387,11 @@ export class Validations {
         this.verifierEtape(2);
     };
 
+    /**
+     * Fonction de validaiton du pseudo
+     * @param element L'élément qui a appellé la fonction
+     * @param type: Type de validation (ex: date de naissance)
+     */
     private validerPseudo = (element:HTMLInputElement, type:string) => {
         //Si l'input n'est pas vide...
         if(this.verifierSiVide(element)){
@@ -387,19 +416,22 @@ export class Validations {
         this.verifierEtape(3);
     };
 
+    /**
+     * Fonction de validaiton du courriel
+     * @param element L'élément qui a appellé la fonction
+     * @param type: Type de validation (ex: date de naissance)
+     */
     private validerCourriel = (element:HTMLInputElement, type:string) => {
         //Si l'input n'est pas vide...
         if(this.verifierSiVide(element)){
             //On vérifie le pattern...
             if(this.verifierPattern(element)){
-                console.log("pattern match")
                 //On efface l'erreur et on affiche le succès
                 this.effacerErreur(element);
                 this.montrerSuccesZoneForm(element, type);
                 this.arrEtapes.etape3.courriel = true;
             }
             else{
-                console.log("pattern no match")
                 this.afficherErreur(element, type, "motif");
                 this.arrEtapes.etape3.courriel = false;
             }
@@ -413,6 +445,11 @@ export class Validations {
         this.verifierEtape(3);
     };
 
+    /**
+     * Fonction de validaiton du mot de passe
+     * @param element L'élément qui a appellé la fonction
+     * @param type: Type de validation (ex: date de naissance)
+     */
     private validerMotDePasse = (element:HTMLInputElement, type:string) => {
         //Si l'input n'est pas vide...
         if(this.verifierSiVide(element)){
@@ -424,7 +461,6 @@ export class Validations {
                 this.arrEtapes.etape3.mdp = true;
             }
             else{
-                // this.effacerErreur(element);
                 //Tests des types d'erreurs
                 const arrElement:Array<string> = element.value.split('');
 
@@ -462,7 +498,6 @@ export class Validations {
                         });
                     });
 
-                    console.log("contientLettre " + contientLettre);
                     if(contientLettre){
                         //Si le mot de passe contient une majuscule
                         let contientMajuscule = false;
@@ -511,6 +546,11 @@ export class Validations {
         this.verifierEtape(3);
     };
 
+    /**
+     * Fonction de validaiton du consentement
+     * @param element L'élément qui a appellé la fonction
+     * @param type: Type de validation (ex: date de naissance)
+     */
     private validerConsentement = (element:HTMLInputElement, type:string) => {
         if(!this.verifierSiVide(element)){
             this.arrEtapes.etape3.termesUtilisation = true;
@@ -538,7 +578,7 @@ export class Validations {
      * Teste le pattern et retourne vrai ou faux
      * @param element: Le champ input
      */
-    private verifierPattern = (element:HTMLInputElement) => {
+    private verifierPattern = (element:HTMLInputElement):boolean => {
         return new RegExp(element.pattern).test(element.value);
     };
 
@@ -569,7 +609,7 @@ export class Validations {
      * @param raison: Raison de l'erreur
      * @param isMpd: Si la zone à valider est le mot de passe
      */
-    private afficherErreur = (element:HTMLInputElement, type:string, raison:string, isMpd:boolean = false) => {
+    private afficherErreur = (element:HTMLInputElement, type:string, raison:string, isMpd:boolean = false):void => {
         const zoneValidation = this.getZoneValidation(element);
         element.classList.add("validation--containerErreur");
         zoneValidation.classList.add("validation--erreur");
@@ -587,11 +627,11 @@ export class Validations {
      * Efface les erreurs du champ
      * @param element: Élément input qui a appellé la fonction
      */
-    private effacerErreur = (element:HTMLInputElement) => {
+    private effacerErreur = (element:HTMLInputElement):void => {
         const zoneValidation = this.getZoneValidation(element);
         element.classList.remove("validation--containerErreur");
         zoneValidation.classList.remove("validation--erreur");
-        zoneValidation.classList.remove("validation--iconeErreur")
+        zoneValidation.classList.remove("validation--iconeErreur");
         zoneValidation.innerHTML = "";
     };
 
@@ -600,7 +640,7 @@ export class Validations {
      * @param element: Élément input qui a appellé la fonction
      * @param type: Type d'élément de formulaire (ex: date de naissance)
      */
-    private montrerSuccesZoneForm = (element:HTMLInputElement, type:string) => {
+    private montrerSuccesZoneForm = (element:HTMLInputElement, type:string):void => {
         const zoneValidation = this.getZoneValidation(element);
         zoneValidation.classList.add("validation--ok");
         zoneValidation.classList.add("validation--icone");
@@ -632,6 +672,9 @@ export class Validations {
         return jour <= listeJoursMois[mois-1];
     };
 
+    /**
+     * Fonction de formatage de date maximale
+     */
     private formaterDateMax = ():Date => {
         //On va chercher la date d'aujourd'hui
         let dateMin = new Date();
@@ -643,6 +686,12 @@ export class Validations {
         return dateMin;
     };
 
+    /**
+     * Fonction qui vérifie si l'âge de la personne s'inscrit est plus que 18 ans
+     * @param jour Numéro du jour
+     * @param mois Numéro du mois
+     * @param annee Numéro de l'année
+     */
     private verifierAge = (jour:number, mois:number, annee:number):boolean => {
         //On créer un objet date avec la date de naissance
         let dateNaissance = new Date(annee, mois, jour);
@@ -651,8 +700,12 @@ export class Validations {
         return dateNaissance <= this.formaterDateMax();
     };
 
-    private basculerTypeMotDePasse = (event) => {
-        if (event.currentTarget.checked == true) {
+    /**
+     * Fonction qui change l'étart de la zone de mot de passe pour toggle l'état de l'input du champ mdp
+     * @param element L'élément qui a appellé la fonction
+     */
+    private basculerTypeMotDePasse = (element:HTMLInputElement):void => {
+        if (element.checked == true) {
             this.inputMDP.type = "text";
         }
         else {
@@ -660,7 +713,7 @@ export class Validations {
         }
     };
 
-    private verifierEtape = (numEtape) => {
+    private verifierEtape = (numEtape):void => {
         switch(numEtape){
             case 1:
                 if(this.arrEtapes.etape1.genre == true && this.arrEtapes.etape1.genreRecherche == true)

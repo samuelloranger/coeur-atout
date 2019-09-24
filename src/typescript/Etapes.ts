@@ -27,6 +27,7 @@ export class Etapes {
         this.arrZoneFormulaires[1].classList.add("visuallyhidden");
         this.arrZoneFormulaires[2].classList.add("visuallyhidden");
 
+        //On désactive le bouton envoyer
         this.btnEnvoyer.setAttribute("disabled", "disabled");
         this.btnEnvoyer.classList.add("boutonDisabled");
     };
@@ -35,18 +36,22 @@ export class Etapes {
      * Fonction qui ajoute les écouteurs d'évènements sur les éléments
      */
     private ajouterEcouteursEvenements = () => {
+        //Bouton suivant de la zone 1
         this.btnZone1Suivant.addEventListener("click", () => {
             this.changerZoneForm(1);
         });
 
+        //Bouton suivant de la zone 2
         this.btnZone2Precedent.addEventListener("click", () => {
             this.changerZoneForm(2);
         });
 
+        //Buton précédent de la zone 2
         this.btnZone2Suivant.addEventListener("click", () => {
             this.changerZoneForm(2, true);
         });
 
+        //Bouton orécédent de la zone 3
         this.btnZone3Precedente.addEventListener("click", () => {
             this.changerZoneForm(3);
         });
