@@ -58,6 +58,11 @@ export class Etapes {
     };
 
     // Méthodes d'utilisation
+    /**
+     * Fonction qui cache les zones de formulaires et change les numéros d'étapes
+     * @param numZone
+     * @param etat
+     */
     private changerZoneForm = (numZone:number, etat:boolean = false) => {
         switch(numZone){
             case 1:
@@ -109,7 +114,12 @@ export class Etapes {
         }
     };
 
-    private modifierBtnEtapeSuivante = (numeroBtn:number, activation:boolean) => {
+    /**
+     * Fonction qui réactive ou désactive les boutons de control de zoness
+     * @param numeroBtn numéro de la zone
+     * @param activation
+     */
+    public modifierBtnEtapeSuivante = (numeroBtn:number, activation:boolean) => {
         let refBtn:HTMLInputElement = null;
 
         switch(numeroBtn){
@@ -126,15 +136,15 @@ export class Etapes {
                 break;
         }
 
-        if(activation){
-            refBtn.removeAttribute("disabled");
-            refBtn.classList.remove("boutonDisabled");
+        if(refBtn != null) {
+            if (activation) {
+                refBtn.removeAttribute("disabled");
+                refBtn.classList.remove("boutonDisabled");
+            } else {
+                refBtn.setAttribute("disabled", "disabled");
+                refBtn.classList.add("boutonDisabled");
+            }
         }
-        else{
-            refBtn.setAttribute("disabled", "disabled");
-            refBtn.classList.add("boutonDisabled");
-        }
-
     };
 
 

@@ -63,7 +63,7 @@ export class Validations {
         fetch("assets/js/objMessages.json")
             //Après que le fetch ait terminé
             .then(response => response.json())
-            //Après que la réponse json ait été enregistrée
+            //Après que la réponse json ait été éxécutée, on l'enregistre
             .then(response => {
                 this.objMessages = response;
                 this.ajouterEcouteursEvenements();
@@ -88,6 +88,9 @@ export class Validations {
         //Boutons checkbox "Je recherche"
         this.refarrJeCherche.forEach((element:HTMLInputElement) => {
             element.addEventListener("blur", () =>
+                this.validerJeCherche(element, "sexe")
+            );
+            element.addEventListener("click", () =>
                 this.validerJeCherche(element, "sexe")
             );
         });
@@ -464,8 +467,9 @@ export class Validations {
                 //Tests des types d'erreurs
                 const arrElement:Array<string> = element.value.split('');
 
+                //Test de la longueur du mot de passe
                 let longueurOk:boolean = false;
-                if(arrElement.length >= 6 && arrElement.length <= 10){
+                if(arrElement.length >= 6 && arrElement.length <= 15){
                     longueurOk = true;
                 }
 
@@ -482,6 +486,7 @@ export class Validations {
                         });
                     });
 
+                    //Si le mot de passe ne contient pas de nombre, on affiche l'erreur
                     if(!contientNombre){
                         this.afficherErreur(element, type, "num", true);
                         this.arrEtapes.etape3.mdp = false;
@@ -498,6 +503,7 @@ export class Validations {
                         });
                     });
 
+                    //Si le mot de passe contient des lettres
                     if(contientLettre){
                         //Si le mot de passe contient une majuscule
                         let contientMajuscule = false;
@@ -507,6 +513,7 @@ export class Validations {
                             }
                         });
 
+                        //Si le mot de passe ne contient pas de majuscule
                         if(!contientMajuscule){
                             this.afficherErreur(element, type, "majus", true);
                             this.arrEtapes.etape3.mdp = false;
@@ -520,6 +527,7 @@ export class Validations {
                             }
                         });
 
+                        //Si le mot de passe contient une minuscule
                         if(!contientMinuscule){
                             this.afficherErreur(element, type, "minus", true);
                             this.arrEtapes.etape3.mdp = false;
@@ -543,6 +551,7 @@ export class Validations {
             this.arrEtapes.etape3.mdp = false;
         }
 
+        //On véréfir l'étape #3
         this.verifierEtape(3);
     };
 
@@ -665,7 +674,7 @@ export class Validations {
         let mois:number = Number(this.refMoisNaissance.value);
         let annee:number = Number(this.refAnneeNaissance.value);
 
-        //Si l'année est bisextile, on change la valeur dans le tableau
+        //Si l'année est bissextile, on change la valeur dans le tableau
         if ((!(annee % 4) && annee % 100) || !(annee % 400))
             listeJoursMois[1] = 29;
 
@@ -713,6 +722,10 @@ export class Validations {
         }
     };
 
+    /**
+     * Fonction verifierEtape Vérife si l'étape 1, 2, ou 3 a été vérifiée
+     * @param numEtape Numéro de l'étape à vérifier
+     */
     private verifierEtape = (numEtape):void => {
         switch(numEtape){
             case 1:
