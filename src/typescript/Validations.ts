@@ -83,6 +83,9 @@ export class Validations {
             element.addEventListener("blur", () =>
                 this.validerJeSuis(element, "sexe")
             );
+            element.addEventListener("click", () =>
+                this.validerJeSuis(element, "sexe")
+            );
         });
 
         //Boutons checkbox "Je recherche"

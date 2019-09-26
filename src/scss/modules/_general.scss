@@ -16,9 +16,14 @@
   margin-top: 1%;
 
   &--largeur{
-    width: 85%;
-    height: 28px;
+    width: 100%;
+    height: 35px;
     margin: 2% auto 0 auto;
+
+    @media(min-width: $tablettePortrait){
+      width: 85%;
+      height: 28px;
+    }
   }
 
   &--icone{
