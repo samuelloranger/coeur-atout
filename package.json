@@ -17,7 +17,7 @@
     "gulp-sourcemaps": "^2.6.5"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "normalize.scss": "^0.1.0",
     "requirejs": "^2.3.6",
     "susy": "^3.0.5"
